@@ -1,0 +1,13 @@
+.menubar
+  .logo
+  .submenu 
+    .item
+      %ul                
+        %li{:class => ('active' if params[:action]== 'home')}= link_to "صفحه اصلی", root_path                                        
+        %li= link_to "پروژه  ها"
+        %li= link_to "منابع"
+        %li= link_to "درباره ما"
+        %li= link_to "تماس با ما"
+
+.clear-float  
+
