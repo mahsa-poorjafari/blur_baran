@@ -1,1 +1,21 @@
-%h1= "home page"
+.slide-show  
+  #wowslider-container1
+    .ws_images
+      %ul
+        %li
+          =image_tag "7.jpg", :id => "#wows1_0", alt: "7" , title: "7"
+    .ws_bullets
+      %div
+        =link_to "7.jpg", title: "first image" do
+          =image_tag "tooltips/7.jpg"
+          1
+        =link_to '#' do
+          =image_tag "tooltips/2009colorredhairstyle7.jpg"
+          2
+        
+    %span.wsl      
+      
+      
+    .ws_shadow
+      copyright
+  

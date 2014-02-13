@@ -10,7 +10,8 @@ gem 'mysql2'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'jalalidate'
-
+gem 'colorbox-rails'
+gem "paperclip", "~> 3.0"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

@@ -23,10 +23,9 @@
     = javascript_include_tag "application"
   
   %body
-    .main.go-center
-      .login-menu
-        =render "shared/login_menu"      
+    .main.go-center      
       .header
         .menu
           =render "shared/nav_bar"
+      .home-slider
         =yield
