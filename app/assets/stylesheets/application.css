@@ -14,6 +14,12 @@
   
 body {background:#4D4D4D; margin:0px; font-family: 'BYekan'; font-size:16px; }
 a {text-decoration:none; font-family: 'BYekan';  }
+.user-menu {width:80%;}
+.user-menu .user-link{float:right;width:80%;}
+.user-menu .user-link a{float:right;width:100px; color:#fff}
+.user-menu .language{float:right;width:20%; text-align:left}
+
+
 .main {width:80%; background:#fff; margin:0px; margin-top:10px}
 .clear-float  {clear:both}
 .go-center { margin-right:auto; margin-left:auto}
@@ -32,4 +38,4 @@ a {text-decoration:none; font-family: 'BYekan';  }
 .submenu .item ul li:hover .item-pointer img { display:block; } 
 
 
-.main .home-slider {width:100%; min-height:500px; opacity:.4}
+.main .home-slider {width:100%; min-height:450px; }

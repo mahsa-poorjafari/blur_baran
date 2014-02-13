@@ -23,8 +23,15 @@
     = javascript_include_tag "application"
   
   %body
-    .main.go-center      
-      .header
+    .user-menu.go-center
+      .user-link
+        =link_to 'صفحه متنی جدید', Page
+      .language
+        =image_tag 'en.png'
+        =image_tag 'fa.png'
+      .clear-float 
+    .main.go-center            
+      .header            
         .menu
           =render "shared/nav_bar"
       .home-slider

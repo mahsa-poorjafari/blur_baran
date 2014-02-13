@@ -28,6 +28,8 @@ GEM
     arel (4.0.2)
     atomic (1.1.14)
     builder (3.1.4)
+    ckeditor_rails (4.2.2)
+      railties (>= 3.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -129,6 +131,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  arel (~> 4.0.2)
+  ckeditor_rails
   coffee-rails (~> 4.0.0)
   colorbox-rails
   haml-rails

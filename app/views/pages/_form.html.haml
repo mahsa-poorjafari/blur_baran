@@ -1,0 +1,26 @@
+= form_for @page do |f|
+  - if @page.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@page.errors.count, "error")} prohibited this page from being saved:"
+      %ul
+        - @page.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label "عنوان به فارسی"
+    = f.text_field :title_fa
+  .field
+    = f.label "عنوان به انگلیسی"
+    = f.text_field :title_en
+  
+  .field
+    = f.label "توضیحات به فارسی"
+    %br
+      %div.editor
+      = f.text_area :text_fa, :class => "ckeditor"
+    
+  .field
+    = f.label "توضیحات به انگلیسی"
+    = f.text_area :text_en, :class => "ckeditor"
+  .actions
+    = f.submit 'ثبت'

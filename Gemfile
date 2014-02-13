@@ -12,6 +12,9 @@ gem 'jquery-rails'
 gem 'jalalidate'
 gem 'colorbox-rails'
 gem "paperclip", "~> 3.0"
+gem  'arel', '~>4.0.2'
+gem 'ckeditor_rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

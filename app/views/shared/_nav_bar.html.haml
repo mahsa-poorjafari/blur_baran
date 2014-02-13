@@ -1,4 +1,4 @@
-.menubar  
+.menubar   
   .submenu 
     .item.go-center
       %ul.go-center                
@@ -17,16 +17,13 @@
             .item-pointer
               =image_tag 'arrow-down.png', :class => "go-center"
             %span= "منابع"
-        =link_to '#' do
-          %li
-            .item-pointer
-              =image_tag 'arrow-down.png', :class => "go-center"
-            %span= "درباره ما"
-        =link_to '#' do
-          %li
-            .item-pointer
-              =image_tag 'arrow-down.png', :class => "go-center"
-            %span= "تماس با ما"
+        - Page.all.each do |page|
+          =link_to page do
+            %li
+              .item-pointer
+                =image_tag 'arrow-down.png', :class => "go-center"
+              %span= page.title_fa
+
   .logo
     = image_tag 'logo.png'
 
