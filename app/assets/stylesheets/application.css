@@ -30,12 +30,12 @@ a {text-decoration:none; font-family: 'BYekan';  }
 .submenu .item ul{ width: 90%; list-style-type: none;}
 
 .submenu .item ul li { float:right; width:120px; text-align:center; height:70px; color: #4D4D4D; font-weight:bold; font-size:20px;}
-.submenu .item ul li { }
 .submenu .item ul li:hover {color:#1E90FF}
-
 .submenu .item ul li .item-pointer { text-align:center; max-height:50px; min-height:50px; }
 .submenu .item ul li .item-pointer img { display:none; margin-top:-3px;  }
 .submenu .item ul li:hover .item-pointer img { display:block; } 
-
+.submenu .item ul li:hover ul.sub-menu {display:block}
+.submenu .item ul li ul.sub-menu{ width:50%; margin-right:200px; margin-top:20px; display:none }
+.submenu .item ul li ul.sub-menu li{ float:right; font-size:14px; font-weight:100; color:#1E90FF; }
 
 .main .home-slider {width:100%; min-height:450px; }

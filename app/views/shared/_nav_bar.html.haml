@@ -7,11 +7,16 @@
             .item-pointer
               =image_tag 'arrow-down.png', :class => "go-center"
             %span= "صفحه اصلی"
-        =link_to '#' do
+        =link_to ProjectCategory do
           %li
             .item-pointer
               =image_tag 'arrow-down.png', :class => "go-center"
             %span= "پروژه  ها"
+            %ul.sub-menu
+              -ProjectCategory.all.each do  |procat|
+                %li= procat.title
+              
+                
         =link_to '#' do
           %li
             .item-pointer

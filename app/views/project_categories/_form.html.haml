@@ -7,10 +7,12 @@
           %li= msg
 
   .field
-    = f.label :title
+    = f.label "عنوان گروه"
     = f.text_field :title
   .field
-    = f.label :description
+    = f.label :توضیحات
     = f.text_area :description
+  .field
+    = f.file_field :sample_pic
   .actions
-    = f.submit 'Save'
+    = f.submit 'ثبت'
