@@ -1,4 +1,6 @@
 BlurBaran::Application.routes.draw do
+  resources :pictures
+
   resources :employers
 
   resources :projects

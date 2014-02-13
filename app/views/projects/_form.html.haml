@@ -5,7 +5,9 @@
       %ul
         - @project.errors.full_messages.each do |msg|
           %li= msg
-
+  .field
+    = f.label "گروه"
+    = f.select :project_category_id, options_for_select(ProjectCategory.find(:all).collect{ |t| [t.title, t.id] }, :prompt => 'Select')
   .field
     = f.label "عنوان پروژه"
     = f.text_field :title
@@ -15,5 +17,6 @@
   .field
     = f.label "کارفرما"
     = f.select :employer_id, options_for_select(Employer.find(:all).collect{ |t| [t.title, t.id] }, :prompt => 'Select')
+  
   .actions
     = f.submit 'ثبت'
