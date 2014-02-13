@@ -6,7 +6,7 @@
 %p
   %b Description:
   = @project_category.description
-
+%p= image_tag @project_category.sample_pic(:thumb)
 = link_to 'Edit', edit_project_category_path(@project_category)
 \|
 = link_to 'Back', project_categories_path

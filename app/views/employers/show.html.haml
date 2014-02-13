@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @employer.title
+%p
+  %b Web site:
+  = @employer.web_site
+%p= image_tag @employer.logo(:thumb)
+
+= link_to 'Edit', edit_employer_path(@employer)
+\|
+= link_to 'Back', employers_path
