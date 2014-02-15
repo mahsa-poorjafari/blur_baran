@@ -8,14 +8,14 @@ BlurBaran::Application.routes.draw do
   
   resources :project_categories
   
-scope "(:locale)", :locale => /en|fa/ do
+scope "/:locale", :locale => /en|fa/ do
   get "home" => "static#home", :as => "home" 
   resources :pages
   resources :projects  
 
-  root :to => 'static#home'
+  
 end
-
+root :to => 'static#home'
 
     
 

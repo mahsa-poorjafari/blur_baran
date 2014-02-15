@@ -7,7 +7,10 @@ class ApplicationController < ActionController::Base
   protected
     def check_autentication
       redirect_to :root unless session[:admin].present?
-    end  
+    end
+    def default_url_options
+      { :locale => I18n.locale }
+    end
   private
     def set_locale
       params[:locale] == "en" ?  I18n.locale = "en" : I18n.locale = "fa"
