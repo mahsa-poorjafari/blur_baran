@@ -9,7 +9,8 @@
 %p
   %b Employer:
   = @project.employer_id
-
+- @project.pictures.each do |pic|
+  = image_tag pic.image(:small)
 = link_to 'Edit', edit_project_path(@project)
 \|
-= link_to 'Back', projects_path
+= link_to 'بازگشت', projects_path

@@ -29,10 +29,11 @@
         =link_to 'گروه بندی پروژه ها', project_categories_path  
         =link_to 'تعریف پروژه جدید', Project    
         =link_to 'تعریف کارفرما جدید', Employer
+        =link_to 'تعریف منبع جدید', Resource
       
       .language
-        =image_tag 'en.png'
-        =image_tag 'fa.png'
+        =link_to (image_tag "en.png", :class => "language-icon farc", :id => "en"), locale: :en
+        =link_to (image_tag "fa.png", :class => "language-icon", :id => "en"), locale: :fa
       .clear-float 
     .main.go-center            
       .header            

@@ -1,0 +1,23 @@
+%p#notice= notice
+
+%p
+  %b Title fa:
+  = @resource.title_fa
+%p
+  %b Title en:
+  = @resource.title_en
+%p
+  %b Text html fa:
+  =raw @resource.text_html_fa
+%p
+  %b Text html en:
+  =raw @resource.text_html_en
+%p
+  %b Link:
+  =link_to @resource.link, @resource.link
+%div
+  = image_tag @resource.image.url(:medium)
+
+= link_to 'Edit', edit_resource_path(@resource)
+\|
+= link_to 'Back', resources_path

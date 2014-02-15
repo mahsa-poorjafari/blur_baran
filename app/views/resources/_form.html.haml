@@ -1,0 +1,32 @@
+= form_for @resource do |f|
+  - if @resource.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@resource.errors.count, "error")} prohibited this resource from being saved:"
+      %ul
+        - @resource.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label "عنوان به فارسی"
+    = f.text_field :title_fa
+  .field
+    = f.label "عنوان به انگلیسی"
+    = f.text_field :title_en
+  .field
+    = f.label "لینک منبع"
+    = f.text_field :link
+  
+  .field
+    = f.label "توضیحات به فارسی"
+    %br
+      %div.editor
+      = f.text_area :text_html_fa, :class => "ckeditor"
+    
+  .field
+    = f.label "توضیحات به انگلیسی"
+    = f.text_area :text_html_en, :class => "ckeditor"
+  .field
+    = f.label "تصویر"
+    = f.file_field :image
+  .actions
+    = f.submit 'ثبت'

@@ -20,4 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  back: "back"
+  home: "Home"  
+  More: "More"
+  projects: "Projects"
+  Resources: "Resources"

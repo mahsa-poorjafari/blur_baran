@@ -46,6 +46,8 @@ GEM
       rails (>= 3.1.1)
     erubis (2.7.0)
     execjs (2.0.2)
+    friendly_id (5.0.0.rc2)
+      activerecord (~> 4.0.0)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -135,7 +137,9 @@ DEPENDENCIES
   ckeditor_rails
   coffee-rails (~> 4.0.0)
   colorbox-rails
+  friendly_id (= 5.0.0.rc2)
   haml-rails
+  i18n
   jalalidate
   jbuilder (~> 1.2)
   jquery-rails

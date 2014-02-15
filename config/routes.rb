@@ -1,18 +1,28 @@
 BlurBaran::Application.routes.draw do
+  resources :resources
+
+  resources :users
+
   resources :pictures
-
   resources :employers
-
-  resources :projects
-
-  resources :project_categories
-
   resources :pages
+  resources :project_categories
+  
+scope "(:locale)", :locale => /en|fa/ do
+  get "home" => "static#home", :as => "home" 
+  
+  resources :projects  
+
+  root :to => 'static#home'
+end
+
+
+    
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  root :to => 'static#home'
-  get "home" => "static#home"
+  
+  
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

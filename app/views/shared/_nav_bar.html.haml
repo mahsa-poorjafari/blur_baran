@@ -6,12 +6,12 @@
           %li{:class => ('active' if params[:action]== 'home')}
             .item-pointer
               =image_tag 'arrow-down.png', :class => "go-center"
-            %span= "صفحه اصلی"
+            %span= t("home")
         =link_to ProjectCategory do
           %li
             .item-pointer
               =image_tag 'arrow-down.png', :class => "go-center"
-            %span= "پروژه  ها"
+            %span= t("projects")
             %ul.sub-menu
               -ProjectCategory.all.each do  |procat|
                 %li= procat.title
@@ -21,9 +21,9 @@
           %li
             .item-pointer
               =image_tag 'arrow-down.png', :class => "go-center"
-            %span= "منابع"
+            %span= t("Resources")
         - Page.all.each do |page|
-          =link_to page do
+          =link_to page, :class => ('active' if current_page?(page_path(page))) do
             %li
               .item-pointer
                 =image_tag 'arrow-down.png', :class => "go-center"

@@ -18,5 +18,7 @@
     = f.label "کارفرما"
     = f.select :employer_id, options_for_select(Employer.find(:all).collect{ |t| [t.title, t.id] }, :prompt => 'Select')
   
+  =render "/pictures/form"
+    
   .actions
     = f.submit 'ثبت'
