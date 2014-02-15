@@ -5,12 +5,12 @@ BlurBaran::Application.routes.draw do
 
   resources :pictures
   resources :employers
-  resources :pages
+  
   resources :project_categories
   
 scope "(:locale)", :locale => /en|fa/ do
   get "home" => "static#home", :as => "home" 
-  
+  resources :pages
   resources :projects  
 
   root :to => 'static#home'
