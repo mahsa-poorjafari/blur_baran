@@ -7,8 +7,11 @@
           %li= msg
 
   .field
-    = f.label :عنوان
-    = f.text_field :title
+    = f.label "عنوان به فارسی:"
+    = f.text_field :title_fa
+  .field
+    = f.label "عنوان به انگلیسی"
+    = f.text_field :title_en
   .field
     = f.label "وب سایت:"
     = f.text_field :web_site

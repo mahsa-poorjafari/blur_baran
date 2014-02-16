@@ -1,18 +1,14 @@
 %p#notice= notice
+.innerCenter{:id => I18n.locale}
+  %h1= @page.title     
+  .show-des-en{:class => I18n.locale, :id => I18n.locale}     
+    =raw @page.text
+  -if @page.read_attribute("title_en") == "Contact us"
+    = render "shared/msg_form"
+  
+  = link_to content_tag("span", "ویرایش"), edit_page_path(@page)
+  \|
+  = link_to content_tag("span", "بازگشت"), home_path
 
-%p
-  %b Title fa:
-  = @page.title_fa
-%p
-  %b Title en:
-  = @page.title_en
-%p
-  %b Text fa:
-  =raw @page.text_fa
-%p
-  %b Text en:
-  =raw @page.text_en
+  
 
-= link_to 'Edit', edit_page_path(@page)
-\|
-= link_to 'Back', pages_path

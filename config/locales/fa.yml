@@ -7,3 +7,28 @@ fa:
   More: "مشاهده"
   projects: "پروژه ها"
   Resources: "منابع"
+  
+  form:
+    title: "عنوان"
+    Description: "توضیحات"
+    New: "جدید"
+    save: "ثبت"
+    category: "گروه"
+    employer: "کارفرما"
+    edit: "ویرایش"
+    delete: "حذف"
+    web: "وب سایت"
+    
+  project: "پروژه ها"
+  resources: "منابع"
+  employers:  "کارفرمایان"
+  messages: "پیام ها"
+  
+  msg:
+    contact-name: "نام"
+    contact-email: "ایمیل"
+    contact-phone: "تلفن"
+    contact-msg: "پیام"
+    contact-btn: "ارسال"
+    contact-title: "تماس با ما"
+  Required: "ضروری"

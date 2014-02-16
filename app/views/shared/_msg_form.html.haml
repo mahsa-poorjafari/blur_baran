@@ -1,0 +1,36 @@
+.msg-div{:class => I18n.locale}
+  %h3.heading3{:class => I18n.locale, :style => "border-top:#c9c9c9 solid 1px; "}
+    %span 
+      = t("msg.contact-title")
+    =image_tag "msg-icon.png"
+    -if flash[:notice]
+      .notice-msg{:class => I18n.locale}=t("notice-msg") 
+      .clrear-float 
+  .msg-form{:class => I18n.locale, :id => I18n.locale}
+    = form_for @message ||= Message.new  do |f|
+      - if @message.errors.any?
+        #error_explanation{:class => I18n.locale}                   
+          %ul
+            - @message.errors.full_messages.each do |msg|
+              %li= msg
+      .field{:class => I18n.locale}
+        = f.label t("msg.contact-name") 
+        = f.text_field :name      
+        %span.Necessary= t("Required")
+        
+      .field{:class => I18n.locale}
+        = f.label t("msg.contact-email")
+        = f.text_field :email
+        %span.Necessary= t("Required")
+        
+      .field{:class => I18n.locale}
+        = f.label t("msg.contact-phone")
+        = f.text_field :phone
+        
+      .field{:class => I18n.locale}
+        = f.label t("msg.contact-msg")        
+        = f.text_area :message, :class => "msg-feild"
+        %span.Necessary= t("Required")      
+        
+      .actions
+        = f.submit t("msg.contact-btn"), :class=>"btn"

@@ -25,3 +25,28 @@ en:
   More: "More"
   projects: "Projects"
   Resources: "Resources"
+  
+  form:
+    title: "Title"
+    Description: "Description"
+    New: "New"
+    save: "Save"
+    category: "Category"
+    employer: "Employer"
+    edit: "Edit"
+    delete: "Delete"
+    web: "WebSite"
+    
+  project: "Projects"
+  resources: "Resources"
+  employers: "Employers"
+  messages: "Message"
+  
+  msg:
+    contact-name: "Name"
+    contact-email: "Email"
+    contact-phone: "Phone"
+    contact-msg: "Message"    
+    contact-btn: "Send"
+    contact-title: "Contact us"
+  Required: "Required"

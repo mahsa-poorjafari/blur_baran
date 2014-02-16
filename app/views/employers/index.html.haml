@@ -1,21 +1,19 @@
-%h1 Listing employers
+.innerCenter{:id => I18n.locale}
+  %h1= t('employers')
+  .show-projects
+    .row.go-center      
+      .column= t('form.title')
+      .column= t('form.web')
+    .clear-float
+    - @employers.each do |employer|
+      .row.go-center
+        .column= link_to employer.title, employer
+        .column= link_to employer.web_site, "http://#{employer.web_site}", :target => "blank"
+        .column= link_to (image_tag 'edit-icons.png'),  edit_employer_path(employer)
+        .column= link_to (image_tag 'delete-icons.png'), employer, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
+      .clear-float
+  %br
 
-%table
-  %tr
-    %th Title
-    %th Web site
-    %th
-    %th
-    %th
+  = link_to t('form.New'), new_employer_path
 
-  - @employers.each do |employer|
-    %tr
-      %td= employer.title
-      %td= employer.web_site
-      %td= link_to 'Show', employer
-      %td= link_to 'Edit', edit_employer_path(employer)
-      %td= link_to 'Destroy', employer, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Employer', new_employer_path
+ 

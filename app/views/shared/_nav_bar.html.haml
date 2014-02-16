@@ -17,7 +17,7 @@
                 %li= procat.title
               
                 
-        =link_to '#' do
+        =link_to resources_path, :class => ('active' if current_page?(resources_path)) do
           %li
             .item-pointer
               =image_tag 'arrow-down.png', :class => "go-center"

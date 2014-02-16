@@ -1,6 +1,7 @@
+# encoding: UTF-8
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-
+  layout "others"
   # GET /projects
   # GET /projects.json
   def index

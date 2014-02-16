@@ -1,0 +1,23 @@
+.innerCenter{:id => I18n.locale}
+  %h1= t('messages')
+
+  %table
+    %tr
+      %th ایمیل    
+      %th نام
+      %th تلفن    
+      %th
+      %th
+      %th
+
+    - @messages.each do |message|
+      %tr{:class => ('visited' if message.visited == true)}
+        %td=link_to message.email, message      
+        %td= message.name     
+        %td= message.phone
+        %td= link_to (truncate(strip_tags(message.message), :length => 30)), message
+        %td= JalaliDate.new(message.created_at).strftime("%y/%m/%e")       
+        %td= link_to (image_tag 'edit-icons.png'), edit_message_path(message)
+        %td= link_to (image_tag 'delete-icons.png'), message, :method => :delete, :data => { :confirm => 'آیا می خواهید این پیام حذف شود؟' }
+
+  

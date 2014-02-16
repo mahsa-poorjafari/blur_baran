@@ -23,16 +23,15 @@
     = javascript_include_tag "application"
   
   %body
-    .user-menu.go-center      
-      =render "shared/user_links"   
-      
+    .user-menu.go-center
+      =render "shared/user_links"      
       .language
         =link_to (image_tag "en.png", :class => "language-icon farc", :id => "en"), locale: :en
         =link_to (image_tag "fa.png", :class => "language-icon", :id => "en"), locale: :fa
       .clear-float 
     .main.go-center            
-      .header            
+      .header-page            
         .menu
           =render "shared/nav_bar"
-      .home-slider
+      .entry-content{:class => I18n.locale}
         =yield

@@ -8,6 +8,7 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ 
  *= require_self
  *= require_tree .
  */
@@ -19,7 +20,7 @@ a {text-decoration:none; font-family: 'BYekan';  }
 .user-menu .user-link a{float:right;width:150px; color:#fff; border-left:1px solid #fff; text-align:center}
 .user-menu .language{float:right;width:20%; text-align:left}
 
-
+.header-page {background:#89C1F8;}
 .main {width:80%; background:#fff; margin:0px; }
 .clear-float  {clear:both}
 .go-center { margin-right:auto; margin-left:auto}
@@ -37,5 +38,16 @@ a {text-decoration:none; font-family: 'BYekan';  }
 .submenu .item ul li:hover,.submenu .item ul li.active ul.sub-menu {display:block}
 .submenu .item ul li ul.sub-menu{ width:50%; margin-right:200px; margin-top:20px; display:none }
 .submenu .item ul li ul.sub-menu li{ float:right; font-size:14px; font-weight:100; color:#1E90FF; }
-
 .main .home-slider {width:100%; min-height:450px; }
+
+.fa {text-align:right; font-family: B Yekan,'B Yekan',tahoma;}
+.fa h1 {text-align:right}
+.fa table {text-align:right}
+.en {text-align:left; font-family:Helvetica,sans-serif;}
+#en {direction:ltr}
+#fa {direction:rtl}
+.entry-content {min-height:300px}
+.innerCenter {width:90%}
+.innerCenter .show-projects .row { width:90%}
+.innerCenter .show-projects .row .column{width:150px; float:right}
+.visited {color:#7F7F7F}

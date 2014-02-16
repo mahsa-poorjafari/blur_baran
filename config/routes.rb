@@ -1,19 +1,17 @@
-BlurBaran::Application.routes.draw do
-  resources :resources
+BlurBaran::Application.routes.draw do  
 
   resources :users
-
-  resources :pictures
-  resources :employers
+  resources :pictures  
   
-  resources :project_categories
   
 scope "/:locale", :locale => /en|fa/ do
   get "home" => "static#home", :as => "home" 
   resources :pages
   resources :projects  
-
-  
+  resources :employers
+  resources :resources
+  resources :project_categories
+  resources :messages
 end
 root :to => 'static#home'
 

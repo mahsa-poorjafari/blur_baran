@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215104142) do
+ActiveRecord::Schema.define(version: 20140216130413) do
 
   create_table "employers", force: true do |t|
-    t.string   "title"
     t.string   "web_site"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -22,6 +21,18 @@ ActiveRecord::Schema.define(version: 20140215104142) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "title_fa"
+    t.string   "title_en"
+  end
+
+  create_table "messages", force: true do |t|
+    t.text     "email"
+    t.text     "message"
+    t.string   "name"
+    t.text     "phone"
+    t.boolean  "visited"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pages", force: true do |t|

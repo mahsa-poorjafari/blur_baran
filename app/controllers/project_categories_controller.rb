@@ -1,5 +1,7 @@
+# encoding: UTF-8
 class ProjectCategoriesController < ApplicationController
   before_action :set_project_category, only: [:show, :edit, :update, :destroy]
+  layout "others"
 
   # GET /project_categories
   # GET /project_categories.json

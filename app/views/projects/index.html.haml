@@ -1,23 +1,26 @@
-%h1 Listing projects
+.innerCenter
+  %h1= t('projects')
 
-%table
-  %tr
-    %th Title
-    %th Description
-    %th Employer
-    %th
-    %th
-    %th
+  
 
-  - @projects.each do |project|
+  %table
     %tr
-      %td= project.title
-      %td= project.description
-      %td= project.employer_id
-      %td= link_to 'Show', project
-      %td= link_to 'Edit', edit_project_path(project)
-      %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th= t('form.title')
+      %th= t('form.Description')
+      %th= t('form.employer') 
+      %th
+      %th
+      %th
 
-%br
+    - @projects.each do |project|
+      %tr
+        %td= project.title
+        %td= project.description
+        %td= project.employer_id
+        %td= link_to 'Show', project
+        %td= link_to 'Edit', edit_project_path(project)
+        %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New Project', new_project_path
+  %br
+
+  = link_to t('form.New'), new_project_path
