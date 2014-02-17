@@ -4,4 +4,7 @@ class Resource < ActiveRecord::Base
   def title
     I18n.locale == :fa ? self.read_attribute("title_fa") : self.read_attribute("title_en")
   end
+  def text_html
+    I18n.locale == :fa ? self.read_attribute("text_html_fa") : self.read_attribute("text_html_en")
+  end
 end

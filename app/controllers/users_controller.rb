@@ -60,18 +60,6 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:name, :password, :email, :password_confirmation)
-    end
-    
   def create_session
     user = User.where(:name => params[:name]).first
     if user.present? and user.password == params[:password]
@@ -88,4 +76,17 @@ class UsersController < ApplicationController
     session[:admin] = nil
     redirect_to :root
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_user
+      @user = User.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def user_params
+      params.require(:user).permit(:name, :password, :email, :password_confirmation)
+    end
+    
+  
 end

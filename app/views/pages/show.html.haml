@@ -5,6 +5,8 @@
     =raw @page.text
   -if @page.read_attribute("title_en") == "Contact us"
     = render "shared/msg_form"
+  -if @page.read_attribute("title_en") == "About us"
+    = render "shared/our_team"
   
   = link_to content_tag("span", "ویرایش"), edit_page_path(@page)
   \|

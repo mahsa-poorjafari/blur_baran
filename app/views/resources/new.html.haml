@@ -1,5 +1,6 @@
-%h1 New resource
+.innerCenter.go-center{:id => I18n.locale}
+  %h1= t('Resources')
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Back', resources_path
+  = link_to 'Back', resources_path

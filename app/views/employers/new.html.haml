@@ -1,5 +1,6 @@
-%h1= t('employers')
+.innerCenter{:id => I18n.locale}
+  %h1= t('employers')
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Back', employers_path
+  = link_to t('back'), employers_path

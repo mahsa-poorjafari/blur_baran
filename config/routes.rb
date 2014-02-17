@@ -13,16 +13,16 @@ scope "/:locale", :locale => /en|fa/ do
   resources :project_categories
   resources :messages
   resources :teams
+  
 end
 root :to => 'static#home'
 
 
   resources :users
-  resources :sessions, only: [:new, :create, :destroy]
- 
-  match '/signup',  to: 'users#new',            via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  get "change_language" => "home#change_language"
+  get "login" => "users#login"  
+  post "create_session" => "users#create_session", :as => :create_session
+  get "delete_session" => "users#delete_session", :as => :delete_session
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

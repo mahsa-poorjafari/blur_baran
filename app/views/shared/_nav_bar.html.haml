@@ -2,7 +2,7 @@
   .submenu 
     .item.go-center
       %ul.go-center                
-        =link_to root_path do
+        =link_to home_path do
           %li{:class => ('active' if params[:action]== 'home')}
             .item-pointer
               =image_tag 'arrow-down.png', :class => "go-center"
