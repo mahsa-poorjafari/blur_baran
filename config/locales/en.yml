@@ -41,6 +41,7 @@ en:
   resources: "Resources"
   employers: "Employers"
   messages: "Message"
+  teams: "Our Team"
   
   msg:
     contact-name: "Name"
@@ -50,3 +51,9 @@ en:
     contact-btn: "Send"
     contact-title: "Contact us"
   Required: "Required"
+  
+  team:
+    name: "Name"
+    description: "Description"
+    email: "Email"
+    education: "Education"

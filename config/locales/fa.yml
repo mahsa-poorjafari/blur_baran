@@ -23,6 +23,7 @@ fa:
   resources: "منابع"
   employers:  "کارفرمایان"
   messages: "پیام ها"
+  teams: "تیم کاری"
   
   msg:
     contact-name: "نام"
@@ -32,3 +33,9 @@ fa:
     contact-btn: "ارسال"
     contact-title: "تماس با ما"
   Required: "ضروری"
+    
+  team:
+    name:  "نام و نام خانوادگی"
+    description: "توضیحات"
+    email: "ایمیل"
+    education: "آخرین مدرک تحصیلی"

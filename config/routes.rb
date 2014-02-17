@@ -1,6 +1,6 @@
 BlurBaran::Application.routes.draw do  
 
-  resources :users
+    
   resources :pictures  
   
   
@@ -12,10 +12,17 @@ scope "/:locale", :locale => /en|fa/ do
   resources :resources
   resources :project_categories
   resources :messages
+  resources :teams
 end
 root :to => 'static#home'
 
-    
+
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+ 
+  match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

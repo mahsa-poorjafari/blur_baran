@@ -1,0 +1,11 @@
+.innerCenter{:id => I18n.locale} 
+
+  .login-form
+    = form_tag create_session_path do 
+      .field
+        %span.lable=" نام کاربری:"
+        %span= text_field_tag :name, "",:class => "txt", :placeholder => "نام کاربری را وارد کنید"
+        %span.lable=" رمز عبور:"
+        %span= password_field_tag :password, "", {:class => "txt"}      
+        = submit_tag "ورود", {:class => "btn"}   
+

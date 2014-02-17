@@ -1,0 +1,37 @@
+.menubar   
+  .other-submenu 
+    .item.go-center
+      %ul.go-center
+        =link_to root_path do
+          %li{:class => ('active' if params[:action]== 'home')}
+            .item-pointer
+              =image_tag 'arrow-down.png', :class => "go-center"
+            %span= t("home")
+        =link_to ProjectCategory do
+          %li
+            .item-pointer
+              =image_tag 'arrow-down.png', :class => "go-center"
+            %span= t("projects")
+            %ul.sub-menu
+              -ProjectCategory.all.each do  |procat|
+                %li= procat.title
+              
+                
+        =link_to resources_path, :class => ('active' if current_page?(resources_path)) do
+          %li
+            .item-pointer
+              =image_tag 'arrow-down.png', :class => "go-center"
+            %span= t("Resources")
+        - Page.all.each do |page|
+          =link_to page, :class => ('active' if current_page?(page_path(page))) do
+            %li
+              .item-pointer
+                =image_tag 'arrow-down.png', :class => "go-center"
+              %span= page.title
+
+  .logo
+    = image_tag 'logo.png'
+
+  .clear-float  
+
+

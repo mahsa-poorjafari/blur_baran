@@ -69,6 +69,23 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :password, :email)
+      params.require(:user).permit(:name, :password, :email, :password_confirmation)
     end
+    
+  def create_session
+    user = User.where(:name => params[:name]).first
+    if user.present? and user.password == params[:password]
+      session[:admin] = user
+      redirect_to :root and return
+    else
+      session[:admin] = nil
+      flash[:partial] = "error"
+      render "login"
+    end
+  end
+
+  def delete_session
+    session[:admin] = nil
+    redirect_to :root
+  end
 end

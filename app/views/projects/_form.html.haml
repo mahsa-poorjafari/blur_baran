@@ -9,18 +9,37 @@
     = f.label t('form.category')
     = f.select :project_category_id, options_for_select(ProjectCategory.find(:all).collect{ |t| [t.title, t.id] }, :prompt => 'Select')
   .field
-    = f.label t('form.title')
+    = f.label "عنوان پروژه با فارسی"
+    = f.text_field :title_fa
+  .field
+    = f.label "عنوان پروژه به انگلیسی"
     = f.text_field :title
   .field
-    = f.label t('form.Description')
+    = f.label "توضیحات به فارسی"
+    %br
+    %div.editor
+      = f.text_area :description_fa, :class => "ckeditor"
+  .field
+    = f.label "توضیحات به انگلیسی"
     %br
     %div.editor
       = f.text_area :description, :class => "ckeditor"
+  
   .field
     = f.label t('form.employer')
     = f.select :employer_id, options_for_select(Employer.find(:all).collect{ |t| [t.title, t.id] }, :prompt => 'Select')
   
-  =render "/pictures/form"
+  .field
+    =f.fields_for :pictures do |picture|  
+      = render "shared/upload_image_form", :picture => picture
+  = f.link_to_add content_tag(:span, "افزودن تصویر"), :pictures, :id => "add_new_picture"    
+  .clrear-float    
+  .alert
+    %ul
+      %li استفاده از عکس های با حجم زیاد نیاز به زمان بالا گذاری زیاد داشته و میتواند فرایند ایجاد محصول را با مشکل مواجه کند
+      %li="حد اکثر عکس هایی که میتوانید برای یک محصول اضافه کنید #{MAX_PRODUCT_PICTURES} عدد میباشد"
+      %li در صورتی که متن بلند در بخش توضیحات وارد نموده اید یک کپی از آن تهیه کنید تا در صورت بروز مشکل نیاز به تایپ دوباره نداشته باشید
+  
     
   .actions
     = f.submit t('form.save')

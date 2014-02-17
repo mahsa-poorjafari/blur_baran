@@ -16,16 +16,17 @@
 body {background:#4D4D4D; margin:0px; font-family: 'BYekan'; font-size:16px;  }
 a {text-decoration:none; font-family: 'BYekan';  }
 .user-menu {width:80%; height:40px; margin-top:5px}
-.user-menu .user-link{float:right;width:80%; }
+.user-menu .user-link{float:right;width:90%; }
 .user-menu .user-link a{float:right;width:150px; color:#fff; border-left:1px solid #fff; text-align:center}
-.user-menu .language{float:right;width:20%; text-align:left}
+.user-menu .language{float:right;width:10%; text-align:left}
 
-.header-page {background:#89C1F8;}
+.header-page {background:#4D4D4D;}
 .main {width:80%; background:#fff; margin:0px; }
 .clear-float  {clear:both}
 .go-center { margin-right:auto; margin-left:auto}
 .menubar .logo {float:left; width:20%}
 .menubar .submenu {float:left; width:80%}
+.menubar .other-submenu {float:left; width:80%; margin-top:30px}
 
 .submenu .item { width: 100%; height:40px; margin-top:-13px}
 .submenu .item ul{ width: 90%; list-style-type: none;}
@@ -51,3 +52,9 @@ a {text-decoration:none; font-family: 'BYekan';  }
 .innerCenter .show-projects .row { width:90%}
 .innerCenter .show-projects .row .column{width:150px; float:right}
 .visited {color:#7F7F7F}
+
+
+.other-submenu .item {width: 100%; height:40px; margin:5px}
+.other-submenu .item ul {width: 90%; list-style-type: none;}
+.other-submenu .item ul li { float:right; width:120px; text-align:center; height:70px; color: #4D4D4D; font-weight:bold; font-size:20px; background:#2F4B4E}
+
