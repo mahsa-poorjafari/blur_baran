@@ -1,25 +1,26 @@
-%h1 Listing pages
+.innerCenter{:id => I18n.locale}
+  %h1= t('page')
 
-%table
-  %tr
-    %th Title fa
-    %th Title en
-    %th Text fa
-    %th Text en
-    %th
-    %th
-    %th
-
-  - @pages.each do |page|
+  %table
     %tr
-      %td= page.title_fa
-      %td= page.title_en
-      %td= page.text_fa
-      %td= page.text_en
-      %td= link_to 'Show', page
-      %td= link_to 'Edit', edit_page_path(page)
-      %td= link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Title fa
+      %th Title en
+      %th Text fa
+      %th Text en
+      %th
+      %th
+      %th
 
-%br
+    - @pages.each do |page|
+      %tr
+        %td= page.title_fa
+        %td= page.title_en
+        %td= page.text_fa
+        %td= page.text_en
+        %td= link_to 'Show', page
+        %td= link_to 'Edit', edit_page_path(page)
+        %td= link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New Page', new_page_path
+  %br
+
+  = link_to t(form.new), new_page_path, :class => "btn"
