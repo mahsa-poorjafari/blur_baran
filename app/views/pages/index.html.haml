@@ -18,9 +18,11 @@
         %td= page.text_fa
         %td= page.text_en
         %td= link_to 'Show', page
-        %td= link_to 'Edit', edit_page_path(page)
-        %td= link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to '(image_tag 'edit-icons.png'), edit_page_path(page)
+        %td= link_to (image_tag 'delete-icons.png'), page, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
   %br
-
-  = link_to t(form.new), new_page_path, :class => "btn"
+.footer
+  .foot-links.go-center 
+    -if is_admin?
+      = link_to t('form.new'), new_page_path, :class => "btn"

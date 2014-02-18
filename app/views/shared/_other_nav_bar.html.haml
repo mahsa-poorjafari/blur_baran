@@ -2,35 +2,31 @@
   .other-submenu 
     .item.go-center
       %ul.go-center
-        =link_to root_path do
-          %li{:class => ('active' if params[:action]== 'home')}
-            .item-pointer
-              =image_tag 'arrow-down.png', :class => "go-center"
+        =link_to home_path do
+          %li{:class => ('active' if params[:action]== 'home')}            
             %span= t("home")
+            
         =link_to ProjectCategory do
-          %li
-            .item-pointer
-              =image_tag 'arrow-down.png', :class => "go-center"
-            %span= t("projects")
-            %ul.sub-menu
-              -ProjectCategory.all.each do  |procat|
-                %li= procat.title
+          %li            
+            .dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                %span= t("projects")
+                %b.caret            
+              %ul.dropdown-menu{role: "menu"}
+                -ProjectCategory.all.each do  |procat|
+                  %li=link_to procat.title, procat
               
                 
         =link_to resources_path, :class => ('active' if current_page?(resources_path)) do
-          %li
-            .item-pointer
-              =image_tag 'arrow-down.png', :class => "go-center"
+          %li            
             %span= t("Resources")
         - Page.all.each do |page|
           =link_to page, :class => ('active' if current_page?(page_path(page))) do
-            %li
-              .item-pointer
-                =image_tag 'arrow-down.png', :class => "go-center"
+            %li              
               %span= page.title
 
   .logo
-    = image_tag 'logo.png'
+    = image_tag 'other-logo.png'
 
   .clear-float  
 

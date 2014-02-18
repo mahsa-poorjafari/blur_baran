@@ -10,12 +10,23 @@
   %p
     %b= t('form.employer')
     = @project.employer.title
-  - @project.pictures.each do |pic|
-    = image_tag pic.image(:small)
+  %p
+    = image_tag @project.pictures.first.image(:large)
+    %br
+    = @project.pictures.first.description
+    .show-pics
+      - @project.pictures.offset(1).each do |pic|
+        .project-pics
+          = image_tag pic.image(:medium)
+          %br
+          = pic.description
+    .clear-float
+  -if is_admin?  
+    = render "pictures/form", :project_id => @project.id
     
-  = render "pictures/form", :project_id => @project.id
-    
-  
-  = link_to t('form.edit'), edit_project_path(@project)
-  \|
-  = link_to t('back'), projects_path
+.footer
+  .foot-links.go-center 
+    .link-marg-top
+      = link_to t('form.edit'), edit_project_path(@project)
+      \|
+      = link_to t('back'), projects_path

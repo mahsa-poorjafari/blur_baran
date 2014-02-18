@@ -7,10 +7,12 @@
     = render "shared/msg_form"
   -if @page.read_attribute("title_en") == "About us"
     = render "shared/our_team"
-  
-  = link_to content_tag("span", "ویرایش"), edit_page_path(@page)
-  \|
-  = link_to content_tag("span", "بازگشت"), home_path
+.footer
+  .foot-links.go-center 
+    -if is_admin?  
+      = link_to content_tag("span", "ویرایش"), edit_page_path(@page)
+      \|
+      = link_to content_tag("span", "بازگشت"), home_path
 
   
 

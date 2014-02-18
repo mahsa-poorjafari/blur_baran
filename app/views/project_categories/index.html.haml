@@ -1,17 +1,32 @@
 .innerCenter{:id => I18n.locale}
   %h1= t('projects')
-  .show-projects
-    .row.go-center      
-      .column= t('form.category')
-      .column= t('form.Description')
-    .clear-float
-    - @project_categories.each do |project_category|
-      .row.go-center
-        .column= link_to project_category.title, project_category
-        .column= project_category.description          
-        .column= link_to  (image_tag 'edit-icons.png'),  edit_project_category_path(project_category)            
-        .column= link_to (image_tag 'delete-icons.png'), project_category, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
-    .clear-float
+  .show-projects    
+    - @project_categories.each do |project_category|    
+      .trow.go-center      
+        .cat-pic= image_tag project_category.sample_pic(:thumb)
+        .show-detail
+          .column= t('form.category')
+          .column= link_to project_category.title, project_category
+          -if is_admin?
+            .column.icon= link_to  (image_tag 'edit-icons.png'),  edit_project_category_path(project_category)            
+            .column.icon= link_to (image_tag 'delete-icons.png'), project_category, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
+          .clear-float
+          .column= t('form.Description')
+          .column= project_category.description          
+        .clear-float
+        %hr
+        .show-pro
+          - project_category.projects.each do |project|    
+            .show-detail
+              = link_to project do
+                = image_tag project.pictures.first.image(:small), :class => "first-img-pro"
+                %br
+                = project.title
+                %br
+                = project.employer.title
+          .clear-float
   %br
-
-  = link_to t('form.New'), new_project_category_path, :class => "btn"
+.footer
+  .foot-links.go-center 
+    -if is_admin?
+      = link_to t('form.New'), new_project_category_path, :class => "btn"

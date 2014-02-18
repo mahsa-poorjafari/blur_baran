@@ -1,5 +1,7 @@
-%h1 New project_category
+.innerCenter.go-center{:id => I18n.locale}
+  %h1= t('project_categoty')
 
-= render 'form'
 
-= link_to 'Back', project_categories_path
+  = render 'form'
+
+  = link_to t('back'), project_categories_path

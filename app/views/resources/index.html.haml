@@ -1,17 +1,19 @@
 .innerCenter.go-center{:id => I18n.locale}
   %h1= t('resources')
-  .show-projects
-    .row.go-center      
+  .show-projects{:id => I18n.locale, :class => I18n.locale}
+    .trow.go-center      
       .column= t('form.title')
       .column= t('form.web')
     .clear-float
     - @resources.each do |resource|
-      .row.go-center
+      .trow.go-center
         .column= link_to resource.title, resource
         .column= resource.link            
         .column= link_to  (image_tag 'edit-icons.png'),  edit_resource_path(resource)           
         .column= link_to (image_tag 'delete-icons.png'), resource, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
     .clear-float
   %br
-
-  = link_to t('form.New'), new_resource_path, :class => "btn"
+.footer
+  .foot-links.go-center 
+    -if is_admin?
+      = link_to t('form.New'), new_resource_path, :class => "btn"

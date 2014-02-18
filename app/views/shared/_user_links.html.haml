@@ -1,5 +1,7 @@
 .user-link
-  .dropdown
+  =link_to "خروج", delete_session_path, :id => "admin-link", :class => ('active' if current_page?(home_path))
+  
+  .dropdown#admin-link
     %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
       مدیر سایت
       %b.caret
@@ -10,7 +12,8 @@
       %li= link_to 'تعریف کارفرما جدید', Employer
       %li= link_to 'تعریف منبع جدید', Resource
       %li= link_to 'افزودن فرد جدید به تیم', Team  
-    
+     
+  .clear-float
 
       
 

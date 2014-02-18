@@ -1,7 +1,6 @@
-%h1 Editing project_category
+.innerCenter.go-center{:id => I18n.locale}
+  %h1= t('project_categoty')
+  = render 'form'
 
-= render 'form'
-
-= link_to 'Show', @project_category
-\|
-= link_to 'Back', project_categories_path
+  
+  = link_to t('back'), project_categories_path

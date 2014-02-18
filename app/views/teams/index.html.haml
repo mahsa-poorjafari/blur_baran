@@ -24,5 +24,7 @@
         %td= link_to (image_tag 'delete-icons.png'), team, :method => :delete, :data => { :confirm => 'آیا می خواهید این پیام حذف شود؟' }
 
   %br
-
-  = link_to t('form.New'), new_team_path, :class => "btn"
+.footer
+  .foot-links.go-center 
+    -if is_admin?
+      = link_to t('form.New'), new_team_path, :class => "btn"

@@ -7,30 +7,33 @@ fa:
   home: "صفحه اصلی"
   More: "مشاهده"
   projects: "پروژه ها"
-  Resources: "منابع"
+  Resources: "منابع "
+  SignUp: "افزودن مدیرسایت"
+  project_categoty: "گروه بندی پروژه ها"
   
   form:
-    title: "عنوان"
+    title: "عنوان:"
     Description: "توضیحات"
     New: "جدید"
     save: "ثبت"
     category: "گروه"
-    employer: "کارفرما"
+    employer: "کارفرما:"
     edit: "ویرایش"
     delete: "حذف"
-    web: "وب سایت"
+    web: "وب سایت:"
     
   project: "پروژه ها"
-  resources: "منابع"
+  resources: "منابع علمی"
   employers:  "کارفرمایان"
   messages: "پیام ها"
   teams: "تیم کاری"
   
   msg:
-    contact-name: "نام"
-    contact-email: "ایمیل"
-    contact-phone: "تلفن"
-    contact-msg: "پیام"
+    contact-name: "نام:"
+    contact-email: "ایمیل:"
+    contact-phone: "تلفن:"
+    contact-msg: "پیام:"
+    contact-date: "تاریخ ارسال:"
     contact-btn: "ارسال"
     contact-title: "تماس با ما"
   Required: "ضروری"
@@ -40,3 +43,10 @@ fa:
     description: "توضیحات"
     email: "ایمیل"
     education: "آخرین مدرک تحصیلی"
+  
+  user:
+    email: "ایمیل:"
+    name: "نام:"
+    password: "رمزعبور:"
+    password_confirmation: "تکرار رمزعبور:"
+    

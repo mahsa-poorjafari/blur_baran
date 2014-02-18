@@ -26,17 +26,19 @@ en:
   More: "More"
   projects: "Projects"
   Resources: "Resources"
+  SignUp: "Sign Up"
+  project_categoty: "Project Category"
   
   form:
-    title: "Title"
+    title: "Title:"
     Description: "Description"
     New: "New"
     save: "Save"
     category: "Category"
-    employer: "Employer"
+    employer: "Employer:"
     edit: "Edit"
     delete: "Delete"
-    web: "WebSite"
+    web: "WebSite:"
     
   project: "Projects"
   resources: "Resources"
@@ -45,10 +47,11 @@ en:
   teams: "Our Team"
   
   msg:
-    contact-name: "Name"
-    contact-email: "Email"
-    contact-phone: "Phone"
-    contact-msg: "Message"    
+    contact-name: "Name:"
+    contact-email: "Email:"
+    contact-phone: "Phone:"
+    contact-msg: "Message:"    
+    contact-date: "Date:"
     contact-btn: "Send"
     contact-title: "Contact us"
   Required: "Required"
@@ -58,3 +61,9 @@ en:
     description: "Description"
     email: "Email"
     education: "Education"
+  user:
+    email: "Email:"
+    name: "Name:"
+    password: "Password:"
+    password_confirmation: "Password Confirmation:"
+    

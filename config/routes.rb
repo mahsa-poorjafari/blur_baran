@@ -1,9 +1,5 @@
 BlurBaran::Application.routes.draw do  
 
-    
-  
-  
-  
 scope "/:locale", :locale => /en|fa/ do
   get "home" => "static#home", :as => "home" 
   resources :pages
@@ -15,9 +11,11 @@ scope "/:locale", :locale => /en|fa/ do
   resources :teams
   resources :pictures  
   
-end
-root :to => 'static#home'
 
+  
+end
+
+root :to => 'static#home'
 
   resources :users
   get "change_language" => "home#change_language"
