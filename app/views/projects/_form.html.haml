@@ -28,18 +28,7 @@
   .field
     = f.label t('form.employer')
     = f.select :employer_id, options_for_select(Employer.find(:all).collect{ |t| [t.title, t.id] }, :prompt => 'Select')
-  
-  .field
-    =f.fields_for :pictures do |picture|  
-      = render "shared/upload_image_form", :picture => picture
-  = f.link_to_add content_tag(:span, "افزودن تصویر"), :pictures, :id => "add_new_picture"    
-  .clrear-float    
-  .alert
-    %ul
-      %li استفاده از عکس های با حجم زیاد نیاز به زمان بالا گذاری زیاد داشته و میتواند فرایند ایجاد محصول را با مشکل مواجه کند
-      %li="حد اکثر عکس هایی که میتوانید برای یک محصول اضافه کنید #{MAX_PRODUCT_PICTURES} عدد میباشد"
-      %li در صورتی که متن بلند در بخش توضیحات وارد نموده اید یک کپی از آن تهیه کنید تا در صورت بروز مشکل نیاز به تایپ دوباره نداشته باشید
-  
-    
+     
+      
   .actions
     = f.submit t('form.save')

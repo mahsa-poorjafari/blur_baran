@@ -1,8 +1,12 @@
 %p#notice= notice
-
+%p
+  =image_tag @picture.image(:medium)
 %p
   %b Description:
   = @picture.description
+%p
+  %b project_id:
+  = @picture.project_id
 
 = link_to 'Edit', edit_picture_path(@picture)
 \|

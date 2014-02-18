@@ -1,16 +1,17 @@
 = form_for @picture=Picture.new do |f|
   - if @picture.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@picture.errors.count, "error")} prohibited this picture from being saved:"
+    #error_explanation      
       %ul
         - @picture.errors.full_messages.each do |msg|
           %li= msg
 
+  
+  .field    
+    = f.file_field :image
   .field
     = f.label "توضیحات عکس"
     = f.text_area :description
   .field
-    
-    = f.file_field :image
+    = f.hidden_field :project_id, :value => project_id
   .actions
-    = f.submit 'ثبت عکس'
+    = f.submit 'ثبت'

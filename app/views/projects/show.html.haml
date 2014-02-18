@@ -1,16 +1,21 @@
 %p#notice= notice
-
-%p
-  %b Title:
-  = @project.title
-%p
-  %b Description:
-  = @project.description
-%p
-  %b Employer:
-  = @project.employer_id
-- @project.pictures.each do |pic|
-  = image_tag pic.image(:small)
-= link_to 'Edit', edit_project_path(@project)
-\|
-= link_to 'بازگشت', projects_path
+.innerCenter{:id => I18n.locale}
+  %h1= t('projects')  
+  %p
+    %b= t('form.title')
+    = @project.title
+  %p
+    %b= t('form.Description')
+    =raw @project.description
+  %p
+    %b= t('form.employer')
+    = @project.employer.title
+  - @project.pictures.each do |pic|
+    = image_tag pic.image(:small)
+    
+  = render "pictures/form", :project_id => @project.id
+    
+  
+  = link_to t('form.edit'), edit_project_path(@project)
+  \|
+  = link_to t('back'), projects_path
