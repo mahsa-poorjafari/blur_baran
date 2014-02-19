@@ -1,22 +1,9 @@
-body {background:#4D4D4D; margin:0px; font-family: 'BYekan'; font-size:16px;  }
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
+body {background:#2D2D2D; margin:0px; font-family: 'BYekan'; font-size:16px;  }
+
 a:hover {text-decoration:none}
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
 
 
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
-}
+
 
 #notice {
   color: green;

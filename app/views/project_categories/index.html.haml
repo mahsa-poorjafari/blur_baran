@@ -1,31 +1,33 @@
-.innerCenter{:id => I18n.locale}
+.title-page.go-center
   %h1= t('projects')
-  .show-projects    
-    - @project_categories.each do |project_category|    
-      .trow.go-center      
-        .cat-pic= image_tag project_category.sample_pic(:thumb)
-        .show-detail
-          .column= t('form.category')
-          .column= link_to project_category.title, project_category
-          -if is_admin?
-            .column.icon= link_to  (image_tag 'edit-icons.png'),  edit_project_category_path(project_category)            
-            .column.icon= link_to (image_tag 'delete-icons.png'), project_category, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
-          .clear-float
+.show-projects    
+  - @project_categories.each do |project_category|    
+    .trow.go-center      
+      .cat-pic= image_tag project_category.sample_pic(:thumb), :class => "img-thumbnail"
+      .show-detail
+        .column= t('form.category')
+        .column= link_to project_category.title, project_category
+        .category-des
           .column= t('form.Description')
-          .column= project_category.description          
+          .column= project_category.description      
+        .clear-float      
+        -if is_admin?
+          .column.icon= link_to  (image_tag 'edit-icons.png'),  edit_project_category_path(project_category)            
+          .column.icon= link_to (image_tag 'delete-icons.png'), project_category, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
+        
+      .clear-float
+      %hr
+      .show-pro
+        - project_category.projects.each do |project|    
+          .show-detail
+            = link_to project do
+              = image_tag project.pictures.first.image(:small), :class => "first-img-pro"
+              %br
+              = project.title
+              %br
+              = project.employer.title
         .clear-float
-        %hr
-        .show-pro
-          - project_category.projects.each do |project|    
-            .show-detail
-              = link_to project do
-                = image_tag project.pictures.first.image(:small), :class => "first-img-pro"
-                %br
-                = project.title
-                %br
-                = project.employer.title
-          .clear-float
-  %br
+%br
 .footer
   .foot-links.go-center 
     -if is_admin?

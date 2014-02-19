@@ -1,10 +1,10 @@
 .innerCenter{:id => I18n.locale} 
   .login-form
-    = form_tag create_session_path do 
-      .field
-        %span.lable=" نام کاربری:"
-        %span= text_field_tag :name, "",:class => "txt", :placeholder => "نام کاربری را وارد کنید"
-        %span.lable=" رمز عبور:"
-        %span= password_field_tag :password, "", {:class => "txt"}      
-        = submit_tag "ورود", {:class => "btn"}   
+    = form_tag create_session_path, :class => "form-inline" do 
+      .form-group        
+        %span= text_field_tag :name, "",:class => "form-control", :placeholder => "نام کاربری را وارد کنید"       
+        %span= password_field_tag :password, "", :class => "form-control", :placeholder => "رمز عبور را وارد کنید"
+        .btn-group-vertical
+          = button_tag "ورود", :type => 'button', :class => "btn btn-default"
+        
 

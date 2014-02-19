@@ -1,5 +1,7 @@
 .innerCenter{:id => I18n.locale}
   %h1= t('employers')
+  - if notice    
+    .alert.alert-success= notice    
   .show-projects
     .row.go-center      
       .column= t('form.title')

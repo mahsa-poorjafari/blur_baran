@@ -1,22 +1,22 @@
 = form_for @employer do |f|
   - if @employer.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@employer.errors.count, "error")} prohibited this employer from being saved:"
+      
       %ul
         - @employer.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label "عنوان به فارسی:"
     = f.text_field :title_fa
-  .field
+  .form-group
     = f.label "عنوان به انگلیسی"
     = f.text_field :title_en
-  .field
+  .form-group
     = f.label "وب سایت:"
     = f.text_field :web_site
-  .field
+  .form-group
     = f.label "لوگو:"
     = f.file_field :logo
   .actions
-    = f.submit t('form.save')
+    = f.submit t('form.save'), :class => "btn btn-info"

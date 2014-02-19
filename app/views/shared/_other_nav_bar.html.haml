@@ -1,32 +1,29 @@
-.menubar   
-  .other-submenu 
-    .item.go-center
-      %ul.go-center
-        =link_to home_path do
-          %li{:class => ('active' if params[:action]== 'home')}            
-            %span= t("home")
-            
-        =link_to ProjectCategory do
-          %li            
-            .dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                %span= t("projects")
-                %b.caret            
-              %ul.dropdown-menu{role: "menu"}
-                -ProjectCategory.all.each do  |procat|
-                  %li=link_to procat.title, procat
-              
-                
-        =link_to resources_path, :class => ('active' if current_page?(resources_path)) do
-          %li            
-            %span= t("Resources")
-        - Page.all.each do |page|
-          =link_to page, :class => ('active' if current_page?(page_path(page))) do
-            %li              
-              %span= page.title
+.navbar.navbar-default
+  .language
+    =link_to (image_tag "en.png", :class => "language-icon farc", :id => "en"), locale: :en
+    =link_to (image_tag "fa.png", :class => "language-icon", :id => "en"), locale: :fa
+  .navbar-collapse.collapse.navbar-responsive-collapse   
+    %ul.nav.navbar-nav.navbar-right   
+      %li{:class => ('active' if params[:action]== 'home')}            
+        =link_to t("home"), home_path 
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#{project_categories_path}"}
+          %span= t("project")
+          %b.caret            
+        %ul.dropdown-menu{role: "menu"}
+          -ProjectCategory.all.each do  |procat|
+            %li=link_to procat.title, procat
 
-  .logo
-    = image_tag 'other-logo.png'
+        %li{:class => ('active' if current_page?(resources_path))}
+          =link_to t("Resources"), resources_path
+            
+        - Page.all.each do |page|          
+          %li{:class => ('active' if current_page?(page_path(page)))}              
+            =link_to page.title, page
+              
+
+  .navbar-header
+    =link_to (image_tag 'other-logo.png'), home_path, :class => "navbar-brand"
 
   .clear-float  
 

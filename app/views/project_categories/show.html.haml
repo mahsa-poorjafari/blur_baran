@@ -6,7 +6,10 @@
 %p
   %b Description:
   = @project_category.description
-%p= image_tag @project_category.sample_pic(:thumb)
-= link_to 'Edit', edit_project_category_path(@project_category)
-\|
-= link_to 'Back', project_categories_path
+%p= image_tag @project_category.sample_pic(:medium), :class => "img-thumbnail"
+.footer
+  .foot-links.go-center 
+    -if is_admin?
+      = link_to t('edit'), edit_project_category_path(@project_category)
+      \|
+      = link_to t('back'), project_categories_path

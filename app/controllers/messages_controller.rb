@@ -27,12 +27,11 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-
     if @message.save
-      UserMailer.send_user_mail.deliver      
+      #UserMailer.send_user_mail.deliver      
       flash[:notice] = 'کاربر گرامی پیام شما ارسال گردید.'
     end
-    redirect_to :back, :flash => {:message_obj => @message} 
+    redirect_to :back
   end
 
   # PATCH/PUT /messages/1

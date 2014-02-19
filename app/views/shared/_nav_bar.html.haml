@@ -11,7 +11,7 @@
           %li
             .item-pointer
               =image_tag 'arrow-down.png', :class => "go-center"
-            %span= t("projects")
+            %span= t("project")
             %ul.sub-menu
               -ProjectCategory.all.each do  |procat|
                 %li= procat.title

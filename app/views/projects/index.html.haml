@@ -1,25 +1,25 @@
-.innerCenter{:id => I18n.locale}
+.title-page
   %h1= t('projects')  
 
-  %table
+%table
+  %tr
+    %th= t('form.title')      
+    %th= t('form.employer') 
+    %th
+    %th
+    %th
+
+  - @projects.each do |project|
     %tr
-      %th= t('form.title')      
-      %th= t('form.employer') 
-      %th
-      %th
-      %th
+      %td= link_to project.title, project
+      
+      %td= project.employer.title
+     
+      %td= link_to (image_tag 'edit-icons.png'), edit_project_path(project)
+      %td= link_to (image_tag 'delete-icons.png'), project, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-    - @projects.each do |project|
-      %tr
-        %td= link_to project.title, project
-        
-        %td= project.employer.title
-       
-        %td= link_to (image_tag 'edit-icons.png'), edit_project_path(project)
-        %td= link_to (image_tag 'delete-icons.png'), project, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-  %br
+%br
 .footer
-  .foot-links.go-center 
-    -if is_admin?
-      = link_to t('form.New'), new_project_path, :class => "btn"
+.foot-links.go-center 
+  -if is_admin?
+    = link_to t('form.New'), new_project_path, :class => "btn"

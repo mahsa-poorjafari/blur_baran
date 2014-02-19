@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Description fa:
+  = @slide.description_fa
+%p
+  %b Description en:
+  = @slide.description_en
+
+= link_to 'Edit', edit_slide_path(@slide)
+\|
+= link_to 'Back', slides_path

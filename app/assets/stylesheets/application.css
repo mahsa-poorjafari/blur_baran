@@ -15,9 +15,10 @@
   
 
 a {text-decoration:none; font-family: 'BYekan';  }
+
 .user-menu {width:80%; height:40px; margin-top:5px}
-.user-menu .user-link{float:right;width:40%; }
-.user-menu .user-link a{float:right;width:150px;  text-align:center}
+.user-link{float:right;width:40%; text-align:center; margin-right:150px }
+.user-link a{float:right;width:150px;  text-align:center}
 .user-menu .user-link ul{margin-top:20px}
 .user-menu .language{float:left;width:10%; text-align:left}
 
@@ -25,7 +26,7 @@ a {text-decoration:none; font-family: 'BYekan';  }
 .main {width:80%; background:#fff; margin:0px; }
 .clear-float  {clear:both}
 .go-center { margin-right:auto; margin-left:auto}
-.menubar .logo {float:left; width:20%}
+.menubar .logo {float:left; width:15%}
 .menubar .submenu {float:left; width:80%}
 
 
@@ -49,10 +50,20 @@ a {text-decoration:none; font-family: 'BYekan';  }
 #en {direction:ltr}
 #fa {direction:rtl}
 
-.innerCenter {width:90%; min-height:400px}
+.innerCenter {width:98%; min-height:400px; background: rgb(229,229,229); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(229,229,229,1) 0%, rgba(252,252,252,1) 31%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(229,229,229,1)), color-stop(31%,rgba(252,252,252,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(229,229,229,1) 0%,rgba(252,252,252,1) 31%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(229,229,229,1) 0%,rgba(252,252,252,1) 31%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(229,229,229,1) 0%,rgba(252,252,252,1) 31%,rgba(255,255,255,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(229,229,229,1) 0%,rgba(252,252,252,1) 31%,rgba(255,255,255,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+}
 .innerCenter .show-projects .trow { width:90%; }
 .innerCenter .show-projects .trow .column {width:150px; float:right; height:40px}
 .innerCenter .show-projects .trow .column.icon{width:50px; float:right}
+.innerCenter .show-projects .trow .category-des{width:400px; float:right; min-height:50px}
 .innerCenter .show-projects .trow .cat-pic {width:80px; float:right; margin:5px}
 .innerCenter .show-projects .trow .show-detail { float:right; margin:5px}
 .innerCenter .show-projects .trow .show-pro { min-height:250px; margin:5px}
@@ -70,17 +81,30 @@ a {text-decoration:none; font-family: 'BYekan';  }
 .innerCenter .show-projects .trow .show-pro .show-detail .first-img-pro { margin:5px }
 .visited {color:#7F7F7F}
 
-.other-header {background:#4D4D4D; margin-bottom:5px; height:110px}
-.menubar .other-submenu {float:left; width:75%; margin-top:60px}
+.other-header {background:#2D2D2D;  height:170px}
+
+.menubar .other-submenu {float:left; width:75%; margin-top:110px; }
 .other-submenu .item {width: 100%; height:40px; margin:5px; text-align:center;}
 .other-submenu .item ul {width: 90%; list-style-type: none;}
-.other-submenu .item ul li {padding-top:5px; float:right; width:120px; text-align:center; height:35px; color:#000; font-weight:bold; font-size:20px; border-right:1px #BFBFBF solid;border-left:1px #BFBFBF solid; }
-.other-submenu .item ul li:hover {background:#608387; }
-
-
+.other-submenu .item ul li {
+  padding-top:5px; 
+  float:right;
+  width:120px; 
+  text-align:center; 
+  height:35px; 
+  color:#000; 
+  font-weight:bold; 
+  font-size:20px; 
+  border-right:1px #BFBFBF solid;
+  border-left:1px #BFBFBF solid; 
+  font-size:16px;
+  font-weight:100}
+.other-submenu .item ul li:hover,.other-submenu .item ul li.active {background:#4D4D4D; color:#1E90FF}
+.menubar .language{float:left; width:10%; text-align:left}
+.other-entry-content {background:#BFBFBF; margin-top:-10px}
 .project-pics {float:right}
 
-
+.title-page {width:70%; padding-top:30px; margin-bottom:30px}
 
 .footer {height:150px; padding:5px; background:#E5E5E5; color:#000000; width:99%}
 .footer .foot-links { width:98%; background:#7F7F7F; margin-top:10px; margin-bottom:10px; height:90%; text-align:center}
