@@ -1,12 +1,14 @@
-%p#notice= notice
-.innerCenter{:id => I18n.locale}
-  %h1= @page.title     
-  .show-des-en{:class => I18n.locale, :id => I18n.locale}     
-    =raw @page.text
-  -if @page.read_attribute("title_en") == "Contact us"
-    = render "shared/msg_form"
-  -if @page.read_attribute("title_en") == "About us"
-    = render "shared/our_team"
+-if notice
+  .alert.alert-dismissable.alert-success= notice
+%div
+  .page-header
+    %h1#indicators= @page.title     
+.show-des-en{:class => I18n.locale, :id => I18n.locale}     
+  =raw @page.text
+-if @page.read_attribute("title_en") == "Contact us"
+  = render "shared/msg_form"
+-if @page.read_attribute("title_en") == "About us"
+  = render "shared/our_team"
 .footer
   .foot-links.go-center 
     -if is_admin?  
