@@ -1,23 +1,28 @@
-%p#notice= notice
+- if notice    
+  .alert.alert-success= notice   
+.col-lg-12
+  .page-header.go-center    
+    %h1= t('resources')
+    -if is_admin? 
+      = link_to (image_tag 'edit-icons.png'), edit_resource_path(@resource)
+      \|
+      = link_to t('back'), resources_path
+.middle-div.go-center{:id => I18n.locale, :class => I18n.locale}         
+  .show-employers      
+    %blockquote{ :class => ('pull-left' if I18n.locale == :'en') || ('pull-right' if I18n.locale == :'fa')}      
+      %p
+        .column= t('form.title')
+        .column= @resource.title
+        .column= t('form.web')                  
+        .column= link_to  @resource.link, "http://#{@resource.link}", :target => "blank"
+        .column= t('form.Description')
+        .column= raw @resource.text_html
+      
+    %div{ :class => ('pull-left' if I18n.locale == :'fa') || ('pull-right' if I18n.locale == :'en')}      
+      = image_tag @resource.image.url(:medium), :class => "img-thumbnail"
+    .clear-float
 
-%p
-  %b Title fa:
-  = @resource.title_fa
-%p
-  %b Title en:
-  = @resource.title_en
-%p
-  %b Text html fa:
-  =raw @resource.text_html_fa
-%p
-  %b Text html en:
-  =raw @resource.text_html_en
-%p
-  %b Link:
-  =link_to @resource.link, @resource.link
-%div
-  = image_tag @resource.image.url(:medium)
-
-= link_to 'Edit', edit_resource_path(@resource)
-\|
-= link_to 'Back', resources_path
+%br
+.footer
+  .foot-links.go-center 
+    

@@ -1,31 +1,34 @@
-= form_for @resource do |f|
+= form_for @resource , :class => "bs-example" do |f|
   - if @resource.errors.any?
     #error_explanation      
       %ul
         - @resource.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label "عنوان به فارسی"
-    = f.text_field :title_fa
-  .field
-    = f.label "عنوان به انگلیسی"
-    = f.text_field :title_en
-  .field
-    = f.label "لینک منبع"
-    = f.text_field :link
-  
-  .field
+  .col-lg-4.col-lg-offset-1.pull-right
+    .form-group
+      = f.label "عنوان به فارسی"
+      = f.text_field :title_fa, :class => "form-control"
+    .form-group
+      = f.label "عنوان به انگلیسی"
+      = f.text_field :title_en, :class => "form-control"
+    .form-group
+      = f.label "لینک منبع"
+      = f.text_field :link, :class => "form-control"
+  .clear-float
+  .form-group
     = f.label "توضیحات به فارسی"
     %br
       %div.editor
       = f.text_area :text_html_fa, :class => "ckeditor"
     
-  .field
+  .form-group
     = f.label "توضیحات به انگلیسی"
     = f.text_area :text_html_en, :class => "ckeditor"
-  .field
+  .form-group
     = f.label "تصویر"
+    %br
+    - if @resource.image.present?
+      = image_tag @resource.image(:small)
     = f.file_field :image
   .actions
-    = f.submit 'ثبت'
+    = f.submit 'ثبت', :class => "btn btn-default"

@@ -1,6 +1,14 @@
-.innerCenter{:id => I18n.locale}
-  %h1= t('employers')
-
-  = render 'form'
-
-  = link_to t('back'), employers_path
+.col-lg-12
+  .page-header.go-center    
+    %h1= t('employers')
+    -if is_admin?  
+      = link_to t('back'), employers_path
+.middle-div.go-center
+  .col-lg-4.col-lg-offset-1{ :class => ('pull-left' if I18n.locale == :'en') || ('pull-right' if I18n.locale == :'fa')}      
+    
+    = render 'form'
+  .clear-float
+%br
+.footer
+  .foot-links.go-center 
+  

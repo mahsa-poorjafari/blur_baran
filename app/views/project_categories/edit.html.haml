@@ -1,6 +1,11 @@
-.innerCenter.go-center{:id => I18n.locale}
-  %h1= t('project_categoty')
+.col-lg-12
+  .page-header.go-center
+    %h1= t('project_categoty')
+    = link_to t('back'), project_categories_path
+.form-horizontal{:class => I18n.locale}
   = render 'form'
-
+%br
+.footer
+  .foot-links.go-center 
   
-  = link_to t('back'), project_categories_path
+  

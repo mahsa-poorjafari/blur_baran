@@ -1,15 +1,22 @@
-%p#notice= notice
+-if notice
+  .alert.alert-dismissable.alert-success= notice
+.col-lg-12
+  .page-header.go-center
+    %h1= t('project_categoty')
+.middle-div.go-center 
+  %p
+    %b= t('form.title')
+    = @project_category.title
+  %p
+    %b= t('form.Description')
+    = @project_category.description
+  -if is_admin?
+    = link_to (image_tag 'edit-icons.png'), edit_project_category_path(@project_category)
+    \|
+    = link_to t('back'), project_categories_path
 
-%p
-  %b Title:
-  = @project_category.title
-%p
-  %b Description:
-  = @project_category.description
-%p= image_tag @project_category.sample_pic(:medium), :class => "img-thumbnail"
+  %p= image_tag @project_category.sample_pic(:medium), :class => "img-thumbnail"
+  
 .footer
   .foot-links.go-center 
-    -if is_admin?
-      = link_to t('edit'), edit_project_category_path(@project_category)
-      \|
-      = link_to t('back'), project_categories_path
+    

@@ -1,19 +1,27 @@
-.innerCenter.go-center{:id => I18n.locale}
-  %h1= t('resources')
-  .show-projects{:id => I18n.locale, :class => I18n.locale}
-    .trow.go-center      
-      .column= t('form.title')
-      .column= t('form.web')
-    .clear-float
+.col-lg-12
+  .page-header.go-center
+    %h1= t('resources')
+    -if is_admin?
+      = link_to new_resource_path, :class => "new-project" do
+        = image_tag "add-icons.png"
+        = t('form.New')
+.middle-div.go-center{:id => I18n.locale, :class => I18n.locale}     
+  .show-pro    
     - @resources.each do |resource|
-      .trow.go-center
-        .column= link_to resource.title, resource
-        .column= resource.link            
-        .column= link_to  (image_tag 'edit-icons.png'),  edit_resource_path(resource)           
-        .column= link_to (image_tag 'delete-icons.png'), resource, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
-    .clear-float
-  %br
+      %blockquote{ :class => ('pull-left' if I18n.locale == :'en') || ('pull-right' if I18n.locale == :'fa')}      
+        %p
+          .column= t('form.title')
+          .column= link_to resource.title, resource
+          .column= t('form.web')                  
+          .column= link_to resource.link, "http://#{resource.link}", :target => "blank" 
+        .trow
+          -if is_admin?
+            .column.icon= link_to  (image_tag 'edit-icons.png'),  edit_resource_path(resource)                     
+            .column.icon= link_to (image_tag 'delete-icons.png'), resource, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
+      %div{ :class => ('pull-left' if I18n.locale == :'fa') || ('pull-right' if I18n.locale == :'en')}      
+        = image_tag resource.image(:small), :class => "img-thumbnail"
+      .clear-float
+%br
 .footer
   .foot-links.go-center 
-    -if is_admin?
-      = link_to t('form.New'), new_resource_path, :class => "btn"
+    

@@ -1,6 +1,15 @@
-.innerCenter.go-center{:id => I18n.locale}
-  %h1= t('Resources')
+.col-lg-12
+  .page-header.go-center    
+    %h1= t('Resources')
+    -if is_admin?  
+      = link_to t('back'), resources_path
+.middle-div.go-center  
 
   = render 'form'
+.clear-float
+%br
+.footer
+  .foot-links.go-center 
+  
 
-  = link_to 'Back', resources_path
+

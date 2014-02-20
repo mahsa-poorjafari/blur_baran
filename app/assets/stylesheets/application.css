@@ -51,16 +51,18 @@ a {text-decoration:none; font-family: 'BYekan';  }
 #fa {direction:rtl}
 
 .innerCenter {width:98%; min-height:400px;background:#2b3e50;}
-.innerCenter .show-projects .trow { width:90%; }
+.innerCenter .show-projects .trow { width:90%; margin-bottom:30px}
 .innerCenter .show-projects .trow .column {width:150px; float:right; height:40px}
 .innerCenter .show-projects .trow .column.icon{width:50px; float:right}
-.innerCenter .show-projects .trow .category-des{width:400px; float:right; min-height:50px}
-.innerCenter .show-projects .trow .cat-pic {width:80px; float:right; margin:5px}
-.innerCenter .show-projects .trow .show-detail { float:right; margin:5px}
+.trow .column.icon{width:50px; float:right}
+.innerCenter .show-projects .trow .cat-pic {width:20%; float:right; margin:5px}
+.innerCenter .show-projects .trow .show-detail { float:right; margin:5px; width:75%}
+.innerCenter .show-projects .trow .show-detail .category-des{width:400px;  min-height:50px}
+.innerCenter .show-projects .trow .show-detail .category-name{width:400px;  min-height:50px}
 .innerCenter .show-projects .trow .show-pro { min-height:250px; margin:5px}
-.innerCenter .show-projects .trow .show-pro .show-detail{ 
-  height:190px; 
-  width:200px; 
+.innerCenter .show-projects .trow .show-pro .show-pro-info{ 
+  min-height:200px; 
+  width:230px; 
   margin:5px; 
   background:#BBC8D6; 
   padding:5px; 
@@ -68,8 +70,9 @@ a {text-decoration:none; font-family: 'BYekan';  }
   float:right;
   opacity: .7
 }
-.innerCenter .show-projects .trow .show-pro .show-detail:hover{ opacity:1}
-.innerCenter .show-projects .trow .show-pro .show-detail .first-img-pro { margin:5px }
+.show-employers {width:60%}
+.innerCenter .show-projects .trow .show-pro .show-pro-info:hover{ opacity:1}
+.innerCenter .show-projects .trow .show-pro .show-pro-info .first-img-pro { margin:5px }
 .visited {color:#7F7F7F}
 
 .other-header {background:#fff;  height:150px}
@@ -95,12 +98,14 @@ a {text-decoration:none; font-family: 'BYekan';  }
 .other-entry-content {background:#fff; margin-top:-10px}
 .project-pics {float:right}
 
-.title-page {width:70%; padding-top:30px; margin-bottom:30px}
+.middle-div {width:98%}
 
+.title-page {width:70%; padding-top:30px; margin-bottom:30px}
+.title-page .new-project {float:left;}
 .footer {height:150px; padding:5px; background:#9A9DA0; color:#000000; width:100%}
 .footer .foot-links { width:98%; background:#3d4954; margin-top:10px; margin-bottom:10px; height:90%; text-align:center}
-.footer .foot-links a {margin-top:20px; color:#fff}
+.footer .foot-links a {margin-top:30px; }
 .footer .foot-links .link-marg-top { padding-top:20px}
 .footer .foot-links a:hover {margin-top:20px; color:#61AFD4}
-
+.Necessary {color:#d9534f}
 

@@ -1,14 +1,18 @@
-.title-page.go-center
-  %h1= t('projects')
+.col-lg-12
+  .page-header.go-center
+    %h1= t('projects')
+    -if is_admin?
+      = link_to new_project_category_path, :class => "new-project" do
+        = image_tag "add-icons.png"
+        = t('form.New')
 .show-projects    
   - @project_categories.each do |project_category|    
     .trow.go-center      
       .cat-pic= image_tag project_category.sample_pic(:thumb), :class => "img-thumbnail"
       .show-detail
-        .column= t('form.category')
-        .column= link_to project_category.title, project_category
-        .category-des
-          .column= t('form.Description')
+        .category-name{:id => I18n.locale, :class => I18n.locale }          
+          .column= link_to project_category.title, project_category
+        .category-des          
           .column= project_category.description      
         .clear-float      
         -if is_admin?
@@ -16,19 +20,25 @@
           .column.icon= link_to (image_tag 'delete-icons.png'), project_category, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
         
       .clear-float
-      %hr
+      
       .show-pro
         - project_category.projects.each do |project|    
-          .show-detail
+          .show-pro-info.img-thumbnail
             = link_to project do
-              = image_tag project.pictures.first.image(:small), :class => "first-img-pro"
+              = image_tag project.pictures.first.image(:small), :class => "first-img-pro "
               %br
               = project.title
               %br
+              = image_tag project.employer.logo(:icon)
+              %br
               = project.employer.title
+        -if is_admin?
+          = link_to new_project_path, :class => "new-project" do
+            = image_tag "add-icons.png"
+            = t('form.New')
         .clear-float
+      %hr
 %br
 .footer
   .foot-links.go-center 
-    -if is_admin?
-      = link_to t('form.New'), new_project_category_path, :class => "btn"
+    

@@ -23,10 +23,6 @@
     = javascript_include_tag "application"
   
   %body         
-    -if is_admin?
-      =render "shared/user_links"      
-      
-      .clear-float 
     .main.go-center            
       .other-header                   
         =render "shared/other_nav_bar"

@@ -1,22 +1,25 @@
-= form_for @employer do |f|
+= form_for @employer, :class => "bs-example" do |f|
   - if @employer.errors.any?
     #error_explanation
-      
       %ul
         - @employer.errors.full_messages.each do |msg|
           %li= msg
 
   .form-group
     = f.label "عنوان به فارسی:"
-    = f.text_field :title_fa
+    = f.text_field :title_fa, :class => "form-control"
   .form-group
     = f.label "عنوان به انگلیسی"
-    = f.text_field :title_en
+    = f.text_field :title_en, :class => "form-control"
   .form-group
     = f.label "وب سایت:"
-    = f.text_field :web_site
-  .form-group
+    = f.text_field :web_site, :class => "form-control"
+  .form-group    
     = f.label "لوگو:"
+    %br
+    - if @employer.logo.present?
+      = image_tag @employer.logo(:thumb)
+   
     = f.file_field :logo
   .actions
-    = f.submit t('form.save'), :class => "btn btn-info"
+    = f.submit t('form.save'), :class => "btn btn-default"

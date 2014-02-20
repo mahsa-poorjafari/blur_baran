@@ -1,7 +1,12 @@
-%h1 Editing resource
-
-= render 'form'
-
-= link_to 'Show', @resource
-\|
-= link_to 'Back', resources_path
+.col-lg-12
+  .page-header.go-center    
+    %h1= t('Resources')
+    -if is_admin?  
+      = link_to t('back'), resources_path
+.middle-div.go-center  
+  = render 'form'
+.clear-float
+%br
+.footer
+  .foot-links.go-center 
+  

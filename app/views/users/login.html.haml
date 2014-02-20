@@ -1,10 +1,15 @@
-.innerCenter{:id => I18n.locale} 
-  .login-form
-    = form_tag create_session_path, :class => "form-inline" do 
-      .form-group        
-        %span= text_field_tag :name, "",:class => "form-control", :placeholder => "نام کاربری را وارد کنید"       
-        %span= password_field_tag :password, "", :class => "form-control", :placeholder => "رمز عبور را وارد کنید"
-        .btn-group-vertical
-          = button_tag "ورود", :type => 'button', :class => "btn btn-default"
-        
-
+.middle-div.go-center
+  .col-lg-4.col-lg-offset-1{ :class => ('pull-left' if I18n.locale == :'en') || ('pull-right' if I18n.locale == :'fa')}          
+    = form_tag create_session_path do 
+      .form-group 
+        %span.lable=" نام کاربری:"
+        %span= text_field_tag :name, "",:class => "form-control", :placeholder => "نام کاربری را وارد کنید"
+        %span.lable=" رمز عبور:"
+        %span= password_field_tag :password, "", :class => "form-control", :placeholder => "رمز عبور را وارد کنید" 
+        %br
+        = submit_tag "ورود", :class => "btn btn-default"
+  .clear-float
+%br
+.footer
+  .foot-links.go-center 
+  

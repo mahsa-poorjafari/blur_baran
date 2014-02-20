@@ -1,29 +1,35 @@
 %hr
-%h1= t('teams')
-
-%table
-  %tr
-    %th 
-    %th= t('team.name')    
-    %th= t('team.education')
-    %th= t('team.email')
-    %th= t('team.description')      
-    %th
-    %th
-    %th
-
-  - Team.all.each do |team|
-    %tr
-      %td= image_tag team.image(:small)
-      %td= team.name      
-      %td= team.education      
-      %td= team.email
-      %td= team.description              
-      -if is_admin?
-        %td= link_to (image_tag 'edit-icons.png'), edit_team_path(team)
-        %td= link_to (image_tag 'delete-icons.png'), team, :method => :delete, :data => { :confirm => 'آیا می خواهید این پیام حذف شود؟' }
+%h2= t('teams')
+.bs-example.table-responsive
+  %table.table.table-striped.table-hover 
+    %thead
+      %tr
+        %th 
+        %th{:style => "text-align:center"}= t('team.name')    
+        %th{:style => "text-align:center"}= t('team.education')
+        %th{:style => "text-align:center"}= t('team.email')
+        %th{:style => "text-align:center"}= t('team.description')      
+        %th
+        %th
+        %th
+    %tbody
+      - Team.all.each do |team|
+        %tr
+          -if team.image.blank?
+            %td= image_tag "user-unkhown.png", :class => "img-thumbnail"
+          -else
+            %td= image_tag team.image(:small), :class => "img-thumbnail"
+          %td= team.name      
+          %td= team.education      
+          %td= team.email
+          %td= team.description              
+          -if is_admin?
+            %td= link_to (image_tag 'edit-icons.png'), edit_team_path(team)
+            %td= link_to (image_tag 'delete-icons.png'), team, :method => :delete, :data => { :confirm => 'آیا می خواهید این پیام حذف شود؟' }
 
 %br
- 
+
 -if is_admin?
-  = link_to t('form.New'), new_team_path, :class => "btn"
+  = link_to new_team_path, :class => "new-project" do
+    = image_tag "add-icons.png"
+    = t('form.New')

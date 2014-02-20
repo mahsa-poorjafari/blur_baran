@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class EmployersController < ApplicationController
   before_action :set_employer, only: [:show, :edit, :update, :destroy]
   layout "others"
@@ -28,7 +29,7 @@ class EmployersController < ApplicationController
 
     respond_to do |format|
       if @employer.save
-        format.html { redirect_to @employer, notice: 'Employer was successfully created.' }
+        format.html { redirect_to @employer, notice: 'کارفرما جدید ثبت شد.' }
         format.json { render action: 'show', status: :created, location: @employer }
       else
         format.html { render action: 'new' }
@@ -42,7 +43,7 @@ class EmployersController < ApplicationController
   def update
     respond_to do |format|
       if @employer.update(employer_params)
-        format.html { redirect_to @employer, notice: 'Employer was successfully updated.' }
+        format.html { redirect_to @employer, notice: 'اطلاعات بروزرسانی شد.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

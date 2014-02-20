@@ -1,33 +1,34 @@
-= form_for @team do |f|
+= form_for @team, :class => "bs-example" do |f|
   - if @team.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@team.errors.count, "error")} prohibited this team from being saved:"
+    #error_explanation      
       %ul
         - @team.errors.full_messages.each do |msg|
           %li= msg
   
-  .field   
+  .form-group   
+    -if @team.image.present?
+      = image_tag @team.image(:small)
     = f.file_field :image
-  .field
-    = f.label :name_en
-    = f.text_field :name_en
-  .field
-    = f.label :name_fa
-    = f.text_field :name_fa
-  .field
-    = f.label :education_fa
-    = f.text_area :education_fa
-  .field
-    = f.label :education_en
-    = f.text_area :education_en
-  .field
-    = f.label :email
-    = f.text_area :email
-  .field
-    = f.label :description_fa
-    = f.text_area :description_fa
-  .field
-    = f.label :description_en
-    = f.text_area :description_en
+  .form-group
+    = f.label "نام و نام خانوادگی به انگلیسی"
+    = f.text_field :name_en, :class => "form-control"
+  .form-group
+    = f.label "نام و نام خانوادگی به فارسی"
+    = f.text_field :name_fa, :class => "form-control"
+  .form-group
+    = f.label "آخرین مدرک تحصیلی به فارسی"
+    = f.text_area :education_fa, :class => "form-control"
+  .form-group
+    = f.label "آخرین مدرک تحصیلی به انگلیسی"
+    = f.text_area :education_en, :class => "form-control"
+  .form-group
+    = f.label "ایمیل"
+    = f.text_field :email, :class => "form-control"
+  .form-group
+    = f.label "توضیحات به فارسی"
+    = f.text_area :description_fa, :class => "form-control"
+  .form-group
+    = f.label "توضیحات به انگلیسی"
+    = f.text_area :description_en, :class => "form-control"
   .actions
-    = f.submit 'Save'
+    = f.submit t('form.save'), :class => "btn btn-default"

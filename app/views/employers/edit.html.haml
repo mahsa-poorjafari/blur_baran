@@ -1,7 +1,13 @@
-%h1 Editing employer
+.col-lg-12
+  .page-header.go-center    
+    %h1= t('employers')
+    = link_to t('back'), employers_path
+.middle-div.go-center
+  .col-lg-4.col-lg-offset-1{ :class => ('pull-left' if I18n.locale == :'en') || ('pull-right' if I18n.locale == :'fa')}          
+    = render 'form'
+  .clear-float
 
-= render 'form'
-
-= link_to 'Show', @employer
-\|
-= link_to 'Back', employers_path
+%br
+.footer
+  .foot-links.go-center 
+  

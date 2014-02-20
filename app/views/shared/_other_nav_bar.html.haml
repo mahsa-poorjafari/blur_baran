@@ -15,7 +15,7 @@
           %b.caret            
         %ul.dropdown-menu{role: "menu"}
           -ProjectCategory.all.each do  |procat|
-            %li=link_to procat.title, procat
+            %li{:style => "text-align:center"}=link_to procat.title, procat
 
         %li{:class => ('active' if current_page?(resources_path))}
           =link_to t("Resources"), resources_path
@@ -24,5 +24,8 @@
           %li{:class => ('active' if current_page?(page_path(page)))}              
             =link_to page.title, page
   .clear-float  
+  
+  -if is_admin?
+    =render "shared/user_links" 
 
 

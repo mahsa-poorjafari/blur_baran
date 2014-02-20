@@ -1,6 +1,8 @@
-%p#notice= notice
-.innerCenter{:id => I18n.locale}
-  %h1= t('projects')  
+-if notice
+  .alert.alert-dismissable.alert-success= notice
+.col-lg-12
+  .page-header.go-center
+    %h1= t('projects')
   %p
     %b= t('form.title')
     = @project.title

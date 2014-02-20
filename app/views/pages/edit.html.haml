@@ -1,7 +1,10 @@
-%h1 Editing page
+.col-lg-12
+  .page-header.go-center
+    %h1= t('project_categoty')
 
-= render 'form'
+.middle-div.go-center
+  = render 'form'
 
-= link_to 'Show', @page
-\|
-= link_to 'Back', pages_path
+  = link_to 'Show', @page
+  \|
+  = link_to 'Back', pages_path
