@@ -15,6 +15,7 @@ gem "paperclip", "~> 3.0"
 gem  'arel', '~>4.0.2'
 gem 'ckeditor_rails'
 gem 'i18n'
+gem 'pg'
 gem 'friendly_id', '5.0.0.rc2'
 gem 'colorbox-rails'
 # Use SCSS for stylesheets

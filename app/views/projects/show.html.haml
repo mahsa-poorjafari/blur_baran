@@ -3,6 +3,7 @@
 .col-lg-12
   .page-header.go-center
     %h1= t('projects')
+.middle-div.go-center
   %p
     %b= t('form.title')
     = @project.title
@@ -13,9 +14,10 @@
     %b= t('form.employer')
     = @project.employer.title
   %p
-    = image_tag @project.pictures.first.image(:large)
-    %br
-    = @project.pictures.first.description
+    -if @project.pictures.first.present?
+      = image_tag @project.pictures.first.image(:large)
+      %br
+      = @project.pictures.first.description
     .show-pics
       - @project.pictures.offset(1).each do |pic|
         .project-pics

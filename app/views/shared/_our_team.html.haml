@@ -1,35 +1,26 @@
 %hr
 %h2= t('teams')
-.bs-example.table-responsive
-  %table.table.table-striped.table-hover 
-    %thead
-      %tr
-        %th 
-        %th{:style => "text-align:center"}= t('team.name')    
-        %th{:style => "text-align:center"}= t('team.education')
-        %th{:style => "text-align:center"}= t('team.email')
-        %th{:style => "text-align:center"}= t('team.description')      
-        %th
-        %th
-        %th
-    %tbody
-      - Team.all.each do |team|
-        %tr
-          -if team.image.blank?
-            %td= image_tag "user-unkhown.png", :class => "img-thumbnail"
-          -else
-            %td= image_tag team.image(:small), :class => "img-thumbnail"
-          %td= team.name      
-          %td= team.education      
-          %td= team.email
-          %td= team.description              
+
+.bs-example.table-responsive{:style => "min-height:400px"}
+  - Team.all.each do |team|
+    .list-group.team-work-info{:style => "width:200px; max-height:300px; text-align:center; float:right; margin:3px; border:1px solid #BFBFBF"}
+      %div.go-center{:style => "width:156px; height:156px; text-align:center; padding:5px"}
+        -if team.image.blank?
+          = image_tag "user-unkhown.png"
+        -else
+          = image_tag team.image(:small)
+      .list-group-item
+        %h4.list-group-item-heading= team.name    
+        .show-info-team         
+          %p= team.education
+          %small= team.email
+          %br
           -if is_admin?
-            %td= link_to (image_tag 'edit-icons.png'), edit_team_path(team)
-            %td= link_to (image_tag 'delete-icons.png'), team, :method => :delete, :data => { :confirm => 'آیا می خواهید این پیام حذف شود؟' }
-
-%br
-
--if is_admin?
-  = link_to new_team_path, :class => "new-project" do
-    = image_tag "add-icons.png"
-    = t('form.New')
+            = link_to (image_tag 'edit-icons.png'), edit_team_path(team)
+            = link_to (image_tag 'delete-icons.png'), team, :method => :delete, :data => { :confirm => 'آیا می خواهید این پیام حذف شود؟' }
+      
+ 
+  -if is_admin?
+    = link_to new_team_path, :class => "new-project" do
+      = image_tag "add-icons.png"
+      = t('form.New')

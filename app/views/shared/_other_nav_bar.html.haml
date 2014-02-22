@@ -1,31 +1,31 @@
-.navbar.navbar-default
-  .language
-    =link_to (image_tag "en.png", :class => "language-icon farc", :id => "en"), locale: :en
-    =link_to (image_tag "fa.png", :class => "language-icon", :id => "en"), locale: :fa
-  .logo
-    =link_to (image_tag 'other-logo.png'), home_path
+-if is_admin?
+  =render "shared/user_links" 
+.language
+  =link_to (image_tag "en.png", :class => "language-icon farc", :id => "en"), locale: :en
+  =link_to (image_tag "fa.png", :class => "language-icon", :id => "en"), locale: :fa
+.logo
+  =link_to (image_tag 'logo.png'), home_path
 
-  .navbar-collapse.collapse.navbar-responsive-collapse   
-    %ul.nav.navbar-nav.navbar-right   
-      %li{:class => ('active' if params[:action]== 'home')}            
-        =link_to t("home"), home_path 
-      %li.dropdown{:class => ('active' if current_page?(project_categories_path))}
-        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#{project_categories_path}"}
-          %span= t("project")
-          %b.caret            
-        %ul.dropdown-menu{role: "menu"}
-          -ProjectCategory.all.each do  |procat|
-            %li{:style => "text-align:center"}=link_to procat.title, procat
+.navbar-collapse.collapse.navbar-responsive-collapse   
+  %ul.nav.navbar-nav.navbar-right   
+    %li{:class => ('active' if params[:action]== 'home')}            
+      =link_to t("home"), home_path 
+    %li.dropdown{:class => ('active' if current_page?(project_categories_path))}
+      %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#{project_categories_path}"}
+        %span= t("project")
+        %b.caret            
+      %ul.dropdown-menu{role: "menu"}
+        -ProjectCategory.all.each do  |procat|
+          %li{:style => "text-align:center"}=link_to procat.title, procat
 
-        %li{:class => ('active' if current_page?(resources_path))}
-          =link_to t("Resources"), resources_path
-            
-        - Page.all.each do |page|          
-          %li{:class => ('active' if current_page?(page_path(page)))}              
-            =link_to page.title, page
-  .clear-float  
-  
-  -if is_admin?
-    =render "shared/user_links" 
+      %li{:class => ('active' if current_page?(resources_path))}
+        =link_to t("Resources"), resources_path
+          
+      - Page.all.each do |page|          
+        %li{:class => ('active' if current_page?(page_path(page)))}              
+          =link_to page.title, page
+.clear-float  
+
+
 
 
