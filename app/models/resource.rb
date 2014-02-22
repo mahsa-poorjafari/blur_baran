@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class Resource < ActiveRecord::Base
-  has_attached_file :image, :styles => { :medium => "300x300>", :small => "150x150>" }
+  has_attached_file :image, :styles => { :medium => "300x300>", :small => "200x200>" }
   
   validates :title_fa, :title_en, :uniqueness => {:message => 'عنوان مقاله تکراری است.'}
   validates :title_fa, :title_en, :presence => {:message => 'عنوان مقاله را بنویسید'}

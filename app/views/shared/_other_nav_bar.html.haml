@@ -4,13 +4,13 @@
   =link_to (image_tag "en.png", :class => "language-icon farc", :id => "en"), locale: :en
   =link_to (image_tag "fa.png", :class => "language-icon", :id => "en"), locale: :fa
 .logo
-  =link_to (image_tag 'logo.png'), home_path
+  =link_to (image_tag 'other-logo.png'), home_path
 
-.navbar-collapse.collapse.navbar-responsive-collapse   
-  %ul.nav.navbar-nav.navbar-right   
+.submenu{:id => I18n.locale}  
+  %ul
     %li{:class => ('active' if params[:action]== 'home')}            
       =link_to t("home"), home_path 
-    %li.dropdown{:class => ('active' if current_page?(project_categories_path))}
+    %li.dropdown{:class => ('active' if current_page?(projects_path))}
       %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#{project_categories_path}"}
         %span= t("project")
         %b.caret            

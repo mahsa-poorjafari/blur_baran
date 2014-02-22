@@ -3,13 +3,13 @@
 
 .bs-example.table-responsive{:style => "min-height:400px"}
   - Team.all.each do |team|
-    .list-group.team-work-info{:style => "width:200px; max-height:300px; text-align:center; float:right; margin:3px; border:1px solid #BFBFBF"}
-      %div.go-center{:style => "width:156px; height:156px; text-align:center; padding:5px"}
+    .team-work-info
+      .team-pic.go-center
         -if team.image.blank?
           = image_tag "user-unkhown.png"
         -else
           = image_tag team.image(:small)
-      .list-group-item
+      .list-teams
         %h4.list-group-item-heading= team.name    
         .show-info-team         
           %p= team.education

@@ -1,52 +1,58 @@
-.col-lg-12
-  .page-header.go-center
-    %h1= t('projects')
-    -if is_admin?
-      = link_to new_project_category_path, :class => "new-project" do
-        = image_tag "add-icons.png"
-        = t('form.New')
+.page-title.go-center
+  %h1= t('projects')
+  -if is_admin?
+    = link_to new_project_category_path, :class => "new-project" do
+      = image_tag "add-icons.png"
+      = t('form.New')
 .clear-float
-.middle-div.go-center     
-  - @project_categories.each do |project_category|    
-    .trow.go-center      
-      .tile-category
-        -if is_admin?
-          .column-hover.icon
-            = link_to  (image_tag 'edit-icons.png'),  edit_project_category_path(project_category)            
-            = link_to (image_tag 'delete-icons.png'), project_category, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
-        %div= image_tag project_category.sample_pic(:thumb)
-        .show-detail
-          .category-name{:id => I18n.locale, :class => I18n.locale }          
-            = link_to project_category.title, project_category
-          .category-des          
-            = project_category.description 
-      %div            
+.middle-div.go-center       
+  .projects-list
+    - @project_categories.each do |project_category|    
+      .pro-viewer.go-center      
+        .tile-category{:id => I18n.locale, :class => I18n.locale }
+          -if is_admin?
+            .column.icon
+              = link_to  (image_tag 'edit-icons.png'),  edit_project_category_path(project_category)            
+              = link_to (image_tag 'delete-icons.png'), project_category, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
+            .add-project       
+              -if is_admin?
+                = link_to new_project_path do
+                  = image_tag "add-icons.png"
+                  = t('form.New')
+          %h4.category-name= project_category.title
+          %hr
+          .category-des= project_category.description
+          
+       
+        .clear-float
+      .clear-float
+      .projects-list            
         - project_category.projects.each do |project|  
-          .show-pro-info    
+          .show-pro-info.go-center{:class => cycle('even', 'odd')}    
             .column-hover.icon
               = link_to (image_tag 'edit-icons.png'), edit_project_path(project)
               = link_to (image_tag 'delete-icons.png'), project, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم را حذف کنید؟' }           
-            = link_to project do
-              -if project.pictures.first.present?
-                = image_tag project.pictures.first.image(:small), :class => "first-img-pro "
-              -else 
-                = image_tag "thumbnail.png", :class => "first-img-pro "
-              .project-detail
-                %h4= project.title            
-                %br
-                = project.employer.title
-             
+            .pic-pro
+              = link_to project do
+                -if project.pictures.first.present?
+                  = image_tag project.pictures.first.image(:small), :class => "first-img-pro"
+                -else 
+                  = image_tag "thumbnail.png", :class => "first-img-pro "
+              .clear-float
+            .project-detail{:id => I18n.locale, :class => I18n.locale }
+              %h4= project.title      
+              %p= project.description
+              %br
+              = project.employer.title
+          .clear-float   
 
-      .add-project       
-        -if is_admin?
-          = link_to new_project_path do
-            = image_tag "add-icons.png"
-            = t('form.New')
-      
         
-    .clear-float
+        
+        
+      .clear-float
       
 %br
 .footer
   .foot-links.go-center 
+    %a= "sdf sdf"
     
