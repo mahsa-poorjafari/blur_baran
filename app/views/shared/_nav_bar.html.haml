@@ -11,7 +11,7 @@
     %li{:class => ('active' if params[:action]== 'home')}            
       =link_to t("home"), home_path       
       .arrow-menu.go-center
-    %li.dropdown{:class => ('active' if current_page?(project_categories_path))}
+    %li.dropdown{:class => ('active' if current_page?(project_categories_path))}      
       %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#{project_categories_path}"}
         %span= t("project")
         %b.caret            

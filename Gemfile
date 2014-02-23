@@ -4,9 +4,16 @@ source 'https://rubygems.org'
 gem 'rails', '>4'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
-gem 'mysql2'
+group :development, :test do
+  gem 'sqlite3'
+end
+
+
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'jalalidate'
@@ -15,12 +22,12 @@ gem "paperclip", "~> 3.0"
 gem  'arel', '~>4.0.2'
 gem 'ckeditor_rails'
 gem 'i18n'
-gem 'pg'
+
 gem 'friendly_id', '5.0.0.rc2'
 gem 'colorbox-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'bcrypt', :require => 'bcrypt'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

@@ -207,7 +207,12 @@ a {text-decoration:none; font-family: 'BYekan';  }
 .team-work-info {width:200px; max-height:300px; text-align:center; float:right; margin:3px;}
 .team-work-info .team-pic{width:156px; height:156px; text-align:center; padding:5px;}
 .team-work-info .team-pic img{ border-radius:80px; border: 2px solid #7F7F7F; }
-.team-work-info .list-teams {background-color: rgb(218, 237, 255); opacity:.8; margin-top:-20px; width:156px; color:rgb(6, 33, 52);}
+.team-work-info .list-teams {
+  background-color: rgb(218, 237, 255); 
+  opacity:.8; 
+  margin-top:-20px; 
+  width:200px; 
+  color:rgb(6, 33, 52);}
 .arrow-bottom { 
   width:20px;
   border-top: 10px solid rgb(218, 237, 255);

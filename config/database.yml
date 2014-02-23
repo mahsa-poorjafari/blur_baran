@@ -19,7 +19,8 @@ test:
   timeout: 5000
 
 production:
-  adapter: pg
+  adapter:  pg
+  encoding: utf8
   database: blurbaran
   pool: 5
-  timeout: 5000
+  timeout: 1000
