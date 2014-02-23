@@ -8,7 +8,7 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- 
+ *= require colorbox-rails
  *= require_self
  *= require_tree .
  */
@@ -26,13 +26,26 @@ a {text-decoration:none; font-family: 'BYekan';  }
 .main {width:80%;  margin:0px; }
 .clear-float  {clear:both}
 .go-center { margin-right:auto; margin-left:auto}
-.logo {float:right; width:120px; margin-left:10px; margin-top:-30px}
-.submenu {float:right; width:80%}
-.submenu ul{margin-top:50px; list-style-type: none;color:#fff}
-.submenu ul li{ float:right; width:150px; height:40px; text-align:center }
-.submenu ul li a {color:#fff;-webkit-transition: 0.4s;transition: 0.4s; height:65px}
-.submenu ul li:hover a {color:rgb(57, 114, 155)}
+.logo {float:right; width:120px; margin-left:10px;}
+.logo.smal { margin-top:-30px}
+.menu-home-page {background:#fff; width:100%; height:150px}
 
+.menu-home-page ul.main-menu{float:right; margin-top:100px; list-style-type: none;}
+.menu-home-page ul.main-menu li a{background:#fff; color:rgb(6, 33, 52);-webkit-transition: 0.4s;transition: 0.4s; }
+
+.menu-home-page ul.main-menu li{ float:right; width:150px; height:40px; text-align:center }
+.menu-home-page ul.main-menu li:hover a,.menu-home-page ul.main-menu li.active a {color:rgb(57, 114, 155)}
+.menu-home-page ul.main-menu li:hover .arrow-menu,.menu-home-page ul.main-menu li.active .arrow-menu{display:block}
+
+.submenu {float:right; width:80%}
+.submenu ul.main-menu{margin-top:50px; list-style-type: none;color:#fff}
+.submenu ul.main-menu li{ float:right; width:150px; height:40px; text-align:center }
+.submenu ul.main-menu li a {color:#fff;-webkit-transition: 0.4s;transition: 0.4s; height:65px}
+.submenu ul.main-menu li:hover a,.submenu ul.main-menu li.active a  {color:rgb(57, 114, 155)}
+.submenu ul.main-menu ul.dropdown-menu li a{color:rgb(57, 114, 155); height:20px; background:#fff;}
+.menu-home-page ul.main-menu ul.dropdown-menu li a{color:rgb(57, 114, 155); height:20px; background:#fff;}
+.menu-home-page ul.main-menu ul.dropdown-menu li:hover a{color:rgb(6, 33, 52)}
+.submenu ul.main-menu ul.dropdown-menu li:hover a{color:rgb(6, 33, 52)}
 .main .home-slider {width:100%; min-height:450px; }
 
 .fa {text-align:right; font-family: B Yekan,'B Yekan',tahoma;}
@@ -43,6 +56,8 @@ a {text-decoration:none; font-family: 'BYekan';  }
 #fa {direction:rtl}
 
 .innerCenter {width:98%; min-height:400px; opacity:1}
+.innerCenter table tr{margin:5px; height:130px}
+.innerCenter table tr td{width:120px}
 
 .column.icon{}
 .trow .column.icon{width:50px; float:right}
@@ -80,7 +95,8 @@ a {text-decoration:none; font-family: 'BYekan';  }
   
 .show-pro-info img.first-img-pro { border:1px solid #BFBFBF;}
 .projects-list {margin-bottom:10px; min-height:500px}
-
+.projects-list .pro-viewer {height:300px; width:250px; float:right; border:1px solid #7F7F7F; margin:5px; text-align:center}
+.projects-list .pro-viewer .pro-sample-pic {width:90%; height:200px}
 .projects-list  .project-detail p {font-size:14px; color:rgb(6, 33, 52);}
 .projects-list  .project-detail h4 {font-size:18px; color:rgb(6, 33, 52);}
 
@@ -91,28 +107,26 @@ a {text-decoration:none; font-family: 'BYekan';  }
 
 .other-header { height:100px; margin-bottom:10px}
 
-
-.menubar .other-submenu {float:left; width:75%; margin-top:110px; }
-.other-header .item {width: 100%; height:40px; margin:5px; text-align:center;}
-
-.menubar .language{float:left; width:10%; text-align:left}
+.language{float:left; width:10%; text-align:left}
 .other-entry-content {background:#fff; min-height:500px}
 
 
-.middle-div {width:98%;}
+.middle-div {width:98%; margin-top:50px;}
 .tile-category {  
   min-width:100%;   
   max-width:100%;   
   padding:5px;     
-  margin:0px;
+ 
   
   }
+  
 .tile-category  h4.category-name { font-size:20px; color:rgb(6, 33, 52);}
 .tile-category  .category-des{   
   padding:5px;
   font-size:14px;
   color:rgb(6, 33, 52);  
   width:100%; 
+  margin-top:20px;
   min-height:70px;   
   max-height:100px;}
 .tile-category  .show-detail:hover { height:100px}
@@ -161,8 +175,17 @@ a {text-decoration:none; font-family: 'BYekan';  }
   height:50px; 
   text-align:center}
 .footer .foot-links a {margin-top:30px; color:rgb(57, 114, 155);}
-.footer .foot-links .link-marg-top { padding-top:20px}
+.footer .foot-links .link-margin-top { padding-top:20px}
 .footer .foot-links a:hover {margin-top:20px; color:#61AFD4}
+.footer .foot-links .footer-menu {}
+.footer .foot-links .footer-menu ul{width:80%; list-style-type: none; text-align:center}
+.footer .foot-links .footer-menu ul li{float:right; width:120px;margin-top:10px; height:50px}
+.footer .foot-links .footer-menu ul li a{color:rgb(6, 33, 52);-webkit-transition: 0.4s;transition: 0.4s; height:65px}
+.footer .foot-links .footer-menu ul li:hover a{color:#1E90FF;-webkit-transition: 0.4s;transition: 0.4s; height:65px}
+
+
+
+
 .Necessary {color:#d9534f}
 
 .resources-list {}
@@ -177,15 +200,81 @@ a {text-decoration:none; font-family: 'BYekan';  }
 
   }
 
-.resources-list .show-resource .pro-pic {text-align:center}
-.resources-list .show-resource a {color:rgb(6, 33, 52);}
+.resources-list .show-resource .pro-pic {text-align:center; width:90%; height:200px}
+.resources-list .show-resource a {color:#F47F03;}
 .resources-list .links {text-align:center}
 .form-control {background-color: rgb(218, 237, 255);}
 .team-work-info {width:200px; max-height:300px; text-align:center; float:right; margin:3px;}
 .team-work-info .team-pic{width:156px; height:156px; text-align:center; padding:5px;}
 .team-work-info .team-pic img{ border-radius:80px; border: 2px solid #7F7F7F; }
 .team-work-info .list-teams {background-color: rgb(218, 237, 255); opacity:.8; margin-top:-20px; width:156px; color:rgb(6, 33, 52);}
-.arrow-bottom {width:20px;border-top: 10px solid rgb(218, 237, 255);border-right: 10px solid transparent;border-left: 10px solid transparent; margin-right:100px; margin-left:100px}
-
+.arrow-bottom { 
+  width:20px;
+  border-top: 10px solid rgb(218, 237, 255);
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent; 
+  margin-right:100px; 
+  margin-left:100px;
+  margin-top:-20px;
+  margin-bottom:20px;
+  }
+.arrow-menu {
+  display:none;
+  margin-top:19px;
+  width:20px;
+  border-bottom: 10px solid rgb(6, 33, 52);
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;}
 .even {background: rgb(218, 237, 255); }
 .odd {background:#fff}
+
+.show-pics .project-pics {
+  float:right; 
+  margin:5px; 
+  width:315px; 
+  height:315px; 
+  padding:3px; 
+  text-align:center; 
+ }
+.show-pics .vertical-line {
+  width:1px; 
+  height:300px; 
+  background:#ADD8E6; 
+  float:right;
+  margin-top:10px
+  }
+  
+.send {max-width: 35%;
+border-radius: 3px;
+background-color: rgb(27, 153, 232);
+ont: normal normal normal 16px/1.2em arial, helvetica, sans-serif;
+color: rgb(255, 255, 255);
+padding: 5px;
+border: none;
+border-image-source: initial;
+border-image-slice: initial;
+border-image-width: initial;
+border-image-outset: initial;
+border-image-repeat: initial;
+cursor: pointer;
+margin: 0px;}
+.contact {width:60%; }
+.contact .lable label{width:120px; color: rgb(6, 33, 52);font-size:14px }
+.contact .lable textarea{height:100px }
+.contact .form-feild{border-radius: 3px;
+background-color: rgb(218, 237, 255);
+font: normal normal normal 12px/1.2em arial, helvetica, sans-serif;
+color: rgb(6, 33, 52);
+padding: 5px;
+margin: 0px 0px 5px;
+border: 0px solid rgb(218, 237, 255);
+border-image-source: initial;
+border-image-slice: initial;
+border-image-width: initial;
+border-image-outset: initial;
+border-image-repeat: initial;
+width: 100%;
+}
+
+
+

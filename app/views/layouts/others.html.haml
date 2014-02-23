@@ -29,3 +29,7 @@
       .other-entry-content{:class => I18n.locale}
         .innerCenter.go-center{:id => I18n.locale}
           =yield
+        .footer
+          .foot-links.go-center 
+            = render "shared/footer_menu"
+    

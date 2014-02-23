@@ -1,4 +1,4 @@
-= form_for @message ||= Message.new , :class => "bs-example form-horizontal" do |f|
+= form_for @message ||= Message.new, :html => {:class => "contact"} do |f|
   - if @message.errors.any?
     #error_explanation{:class => I18n.locale}                   
       %ul
@@ -12,23 +12,26 @@
       -if flash[:notice]
         .notice-msg{:class => I18n.locale}=t("notice-msg") 
       .clrear-float 
-  .form-group{:class => I18n.locale, :id => I18n.locale}
+  .lable{:class => I18n.locale, :id => I18n.locale}
     = f.label t("msg.contact-name")    
-    = f.text_field :name, :class => "form-control"
     %span.Necessary= t("Required")
+    = f.text_field :name, :class => "form-feild"
     
-  .form-group{:class => I18n.locale, :id => I18n.locale}
+    
+  .lable{:class => I18n.locale, :id => I18n.locale}
     = f.label t("msg.contact-email")
-    = f.text_field :email, :class => "form-control"
     %span.Necessary= t("Required")
+    = f.text_field :email, :class => "form-feild"
     
-  .form-group{:class => I18n.locale, :id => I18n.locale}
+    
+  .lable{:class => I18n.locale, :id => I18n.locale}
     = f.label t("msg.contact-phone")
-    = f.text_field :phone, :class => "form-control"
+    = f.text_field :phone, :class => "form-feild"
     
-  .form-group{:class => I18n.locale, :id => I18n.locale}
+  .lable{:class => I18n.locale, :id => I18n.locale}
     = f.label t("msg.contact-msg")        
-    = f.text_area :message, :class => "form-control"
-    %span.Necessary= t("Required")      
+    %span.Necessary= t("Required") 
+    = f.text_area :message, :class => "form-feild"
+         
   .form-group
-    = f.submit t("msg.contact-btn"), :class=>"btn btn-primary"
+    = f.submit t("msg.contact-btn"), :class=>"send"

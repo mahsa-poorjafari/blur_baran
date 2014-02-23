@@ -12,16 +12,17 @@
         .pro-sample-pic= image_tag project.pictures.first.image(:small)
         .pro-doc
           =link_to project.title, project        
+          %br
+          
           = project.employer.title
         = link_to (image_tag 'edit-icons.png'), edit_project_path(project)
         = link_to (image_tag 'delete-icons.png'), project, :method => :delete, :data => { :confirm => 'Are you sure?' }
-      .clear-float
-  .add-project       
-    -if is_admin?
-      = link_to new_project_path do
-        = image_tag "add-icons.png"
-        = t('form.New')
+    .clear-float
+    .add-project       
+      -if is_admin?
+        = link_to new_project_path do
+          = image_tag "add-icons.png"
+          = t('form.New')
 %br
-.footer
-.foot-links.go-center 
- 
+
+    

@@ -12,13 +12,9 @@
     =raw @page.text
   -if @page.read_attribute("title_en") == "Contact us"
     %hr
-    .col-lg-6
-      .well
-        = render "shared/msg_form"
+    = render "shared/msg_form"
   -if @page.read_attribute("title_en") == "About us"
     = render "shared/our_team"
   .clear-float
-.footer
-  .foot-links.go-center 
-   
+%br
 

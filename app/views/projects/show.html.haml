@@ -1,36 +1,35 @@
 -if notice
   .alert.alert-dismissable.alert-success= notice
-.col-lg-12
-  .page-header.go-center
-    %h1= t('projects')
+.page-title.go-center
+  %h1= t('projects')
 .middle-div.go-center
-  %p
-    %b= t('form.title')
+  %p.title    
     = @project.title
-  %p
-    %b= t('form.Description')
+  .tile-category
+    %hr
+    .arrow-bottom
+  %p    
     =raw @project.description
   %p
     %b= t('form.employer')
     = @project.employer.title
   %p
     -if @project.pictures.first.present?
-      = image_tag @project.pictures.first.image(:large)
-      %br
-      = @project.pictures.first.description
-    .show-pics
+      =link_to (image_tag @project.pictures.first.image(:large)), @project.pictures.first.image(:large), :data => { :colorbox => true }, :title => @project.pictures.first.description      
+
+    .show-pics.go-center
       - @project.pictures.offset(1).each do |pic|
         .project-pics
-          = image_tag pic.image(:medium)
-          %br
-          = pic.description
+          =link_to (image_tag pic.image(:medium)), pic.image(:large), :data => { :colorbox => true }, :title => pic.description         
+        .vertical-line
+      .clear-float
     .clear-float
   -if is_admin?  
     = render "pictures/form", :project_id => @project.id
     
-.footer
-  .foot-links.go-center 
-    .link-marg-top
+ 
+  .link-margin-top
+    -if is_admin?
       = link_to t('form.edit'), edit_project_path(@project)
       \|
-      = link_to t('back'), projects_path
+    = link_to t('back'), projects_path

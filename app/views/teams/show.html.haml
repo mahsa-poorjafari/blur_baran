@@ -1,27 +1,25 @@
 %p#notice= notice
+.page-header.go-center    
+  %h1= t('teams')
+.clear-float
+.middle-div.go-center
+  %p= image_tag @team.image(:medium)
+  %p
+    %b= t('team.name') 
+    = @team.name
+  
+  %p
+    %b= t('team.education')
+    = @team.education
+  
+  %p
+    %b= t('team.email')
+    = @team.email
+  %p
+    %b= t('team.description') 
+    = @team.description
+  
 
-%p
-  %b Name en:
-  = @team.name_en
-%p
-  %b Name fa:
-  = @team.name_fa
-%p
-  %b Education fa:
-  = @team.education_fa
-%p
-  %b Education en:
-  = @team.education_en
-%p
-  %b Email:
-  = @team.email
-%p
-  %b Description fa:
-  = @team.description_fa
-%p
-  %b Description en:
-  = @team.description_en
-
-= link_to 'Edit', edit_team_path(@team)
-\|
-= link_to 'Back', teams_path
+  = link_to (image_tag 'edit-icons.png'), edit_team_path(@team)
+  \|
+  = link_to 'Back', teams_path

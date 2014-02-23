@@ -1,12 +1,14 @@
-%p#notice= notice
-
+-if notice
+  .alert.alert-dismissable.alert-success= notice
+.page-title.go-center
+  %h1= "اسلایدر"
+.clear-float
+%p= image_tag @slide.image(:gallery_size)
 %p
-  %b Description fa:
-  = @slide.description_fa
-%p
-  %b Description en:
-  = @slide.description_en
+  %b  توضیحات عکس
+  = @slide.description
 
-= link_to 'Edit', edit_slide_path(@slide)
+
+= link_to (image_tag 'edit-icons.png'), edit_slide_path(@slide)
 \|
-= link_to 'Back', slides_path
+= link_to t('back'), slides_path
