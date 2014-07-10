@@ -22,15 +22,36 @@
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
     = javascript_include_tag "application"
   
-  %body   
-    .main.go-center            
-      .header                   
-        =render "shared/nav_bar"
-      .home-slider
-        =yield
-      .footer
-        .foot-links.go-center 
-          %p
-            Copyright blur baran
-            %br
-            Develop by Raush
+  %body#fichtner   
+    .topNav
+      - if is_admin?
+        .admin-menu-box.topNav       
+          %h4= 'منوی مدیر سایت'
+          = render "shared/user_links"
+      .language
+        =link_to (image_tag "en.png", :class => "language-icon farc", :id => "en"), locale: :en
+        =link_to (image_tag "fa.png", :class => "language-icon", :id => "en"), locale: :fa
+              
+    .header
+      .logo
+        = link_to root_path do          
+          = image_tag 'logo.png'
+        
+      .nav
+        = render 'shared/nav_bar'
+       
+      .clear
+    .content
+      =yield
+      .contactFooter
+        = image_tag 'contact.jpg'
+        
+        .text= t('like-to-discuss')
+        .text2= t('plz-call')
+        = link_to 'Get in touch via the website »', Page
+        
+        .clear
+
+    .footerBG
+      = render "shared/footer"
+      

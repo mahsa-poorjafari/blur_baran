@@ -22,8 +22,8 @@
 en:
   back: "back"
   show: "Show"
-  home: "Home"  
-  More: "More"
+  home: "HOME"  
+  More: "→ More"
   projects: "Projects"
   Resources: "Resources"
   SignUp: "Sign Up"
@@ -39,12 +39,22 @@ en:
     edit: "Edit"
     delete: "Delete"
     web: "WebSite:"
-    
-  project: "Projects"
-  resources: "Resources"
+  project: "PROJECT"  
+  our-projects: "OUR PROJECTS"
+  resources: "RESOURDES"
+  services: 'SERVICES & SECTORS'
   employers: "Employers"
   messages: "Message"
   teams: "Our Team"
+  about: "COMPANY"
+  contact: "CONTACT US"
+  bolur-baran: "BOLUR BARAN SHARQ"
+  
+  our-resource: "Our Resources" 
+  our-sectors: "Our Sectors" 
+  Contact-Details: "Contact Details:"
+  like-to-discuss: "Would you like to discuss your project with one of our team?"
+  plz-call: "Please give us a call"
   
   msg:
     contact-name: "Name:"

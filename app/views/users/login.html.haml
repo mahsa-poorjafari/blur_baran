@@ -1,13 +1,15 @@
-.middle-div.go-center
-  .col-lg-4.col-lg-offset-1{ :class => ('pull-left' if I18n.locale == :'en') || ('pull-right' if I18n.locale == :'fa')}          
+
+.right.filters{:class => I18n.locale, :style => "width:91%" }   
+  .contact
     = form_tag create_session_path do 
       .form-group 
-        %span.lable=" نام کاربری:"
-        %span= text_field_tag :name, "",:class => "form-control", :placeholder => "نام کاربری را وارد کنید"
-        %span.lable=" رمز عبور:"
-        %span= password_field_tag :password, "", :class => "form-control", :placeholder => "رمز عبور را وارد کنید" 
+        .lable=" نام کاربری:"
+        = text_field_tag :name, "",:class => "form-control", :placeholder => "نام کاربری را وارد کنید"
+        .lable=" رمز عبور:"
+        = password_field_tag :password, "", :class => "form-control", :placeholder => "رمز عبور را وارد کنید" 
         %br
-        = submit_tag "ورود", :class => "btn btn-default"
-  .clear-float
+        .submit
+          = submit_tag "ورود", :id => "more"
+  .clear
 %br
 

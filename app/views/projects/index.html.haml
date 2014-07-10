@@ -1,28 +1,40 @@
-.page-title.go-center
-  %h1= t('projects')
+.homeSectors
+  = image_tag 'sectors.jpg'
+.careers.twoCols
+  .right
+    .sectionName= t('bolur-baran')
+    %h1.pageName= t('project')
+  .clear
   -if is_admin?
     = link_to new_project_path, :class => "new-project" do
       = image_tag "add-icons.png"
       = t('form.New')
-.clear-float
-.middle-div.go-center     
-  .projects-list
+  .add-project       
+    -if is_admin?
+      = link_to new_project_path do
+        = image_tag "add-icons.png"
+        = t('form.New')
+  .intro
     - @projects.each do |project|
-      .pro-viewer.go-center
-        .pro-sample-pic= image_tag project.pictures.first.image(:small)
-        .pro-doc
-          =link_to project.title, project        
-          %br
-          
-          = project.employer.title
-        = link_to (image_tag 'edit-icons.png'), edit_project_path(project)
-        = link_to (image_tag 'delete-icons.png'), project, :method => :delete, :data => { :confirm => 'Are you sure?' }
-    .clear-float
-    .add-project       
-      -if is_admin?
-        = link_to new_project_path do
-          = image_tag "add-icons.png"
-          = t('form.New')
-%br
+      .title
+        %h2= project.title
+      .width40{:class => I18n.locale } 
+        .pro-sample-pic= image_tag project.pictures.first.image(:medium)
+      .width50{:class => I18n.locale }            
+        = project.employer.title
+        = project.description
+        .more
+          = link_to t('More'), project
+      .clear
+      .width50        
+      
+        - if is_admin?
+          = link_to 'ویرایش', edit_project_path(project)
+          \|
+          = link_to 'حذف', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      .clear
+      %hr
+    
+    
 
     

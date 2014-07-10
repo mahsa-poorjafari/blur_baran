@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class EmployersController < ApplicationController
   before_action :set_employer, only: [:show, :edit, :update, :destroy]
-  layout "others"
+  
   # GET /employers
   # GET /employers.json
   def index

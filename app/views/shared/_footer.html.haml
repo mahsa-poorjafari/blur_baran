@@ -1,0 +1,26 @@
+.footer
+  .col1{:class => I18n.locale } 
+    %div
+      %h2
+        =t('our-resource')
+        %br/
+    %div
+      - Resource.all.each do |resource|
+        = link_to resource.title, resource.title
+    
+  .col2{:class => I18n.locale } 
+    %div
+      %h2
+        = t('our-sectors')
+        %br/
+    %div
+      - ProjectCategory.all.each do |category|
+        = link_to category.title, category.title
+        %br
+  .col4{:class => I18n.locale } 
+    %h2= t('Contact-Details')
+    - @contact= Page.find_by_title_en('Contact us')
+    %div
+      = raw @contact.text
+  .clear
+  .bottomBorder

@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
-  layout "others"
+  
   # GET /pages
   # GET /pages.json
   def index

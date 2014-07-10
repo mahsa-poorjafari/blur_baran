@@ -1,37 +1,20 @@
--if is_admin?
-  =render "shared/user_links" 
-.clear-float  
-.menu-home-page{:id => I18n.locale}  
-  .language
-    =link_to (image_tag "en.png", :class => "language-icon farc", :id => "en"), locale: :en
-    =link_to (image_tag "fa.png", :class => "language-icon", :id => "en"), locale: :fa
-  .logo
-    =link_to (image_tag 'logo.png'), home_path
-  %ul.main-menu
-    %li{:class => ('active' if params[:action]== 'home')}            
-      =link_to t("home"), home_path       
-      .arrow-menu.go-center
-    %li.dropdown{:class => ('active' if current_page?(project_categories_path))}      
-      %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#{project_categories_path}"}
-        %span= t("project")
-        %b.caret            
-      %ul.dropdown-menu{role: "menu"}
-        -ProjectCategory.all.each do  |procat|
-          %li{:style => "text-align:center"}
-            =link_to procat.title, procat
-      .arrow-menu.go-center      
-          
-
-      %li{:class => ('active' if current_page?(resources_path))}
-        =link_to t("Resources"), resources_path
-        .arrow-menu.go-center
-          
-      - Page.all.each do |page|          
-        %li{:class => ('active' if current_page?(page_path(page)))}              
-          =link_to page.title, page
-          .arrow-menu.go-center
-.clear-float  
-
-
-
+%ul
+  %li
+    =link_to t("home"), home_path   
+  
+  %li.wide
+    =link_to t("our-projects"), projects_path 
+    
+  %li
+    =link_to t("resources"), resources_path     
+    
+  %li.bottom
+    =link_to t('about'), pages_path 
+    
+  %li.wide.bottom
+    =link_to t('services'), project_categories_path
+    
+  %li.bottom
+    =link_to t('contact'), pages_path 
+    
 

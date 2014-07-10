@@ -1,35 +1,38 @@
 -if notice
   .alert.alert-dismissable.alert-success= notice
-.page-title.go-center
-  %h1= t('projects')
-.middle-div.go-center
-  %p.title    
-    = @project.title
-  .tile-category
-    %hr
-    .arrow-bottom
-  %p    
-    =raw @project.description
-  %p
-    %b= t('form.employer')
-    = @project.employer.title
-  %p
+.projects
+  .title
+    %h1= t('project')  
+.careers.twoCols
+  .filters{:class => I18n.locale, :style => "width:91%" }   
+    %div
+      -if is_admin?
+        = link_to t('form.edit'), edit_project_path(@project)
+        \|
+        = link_to t('back'), projects_path
+    %h3    
+      = @project.title
+  .width50{:class => I18n.locale}     
     -if @project.pictures.first.present?
-      =link_to (image_tag @project.pictures.first.image(:large)), @project.pictures.first.image(:large), :data => { :colorbox => true }, :title => @project.pictures.first.description      
-
+      =link_to (image_tag @project.pictures.first.image(:medium)), @project.pictures.first.image(:large), :data => { :colorbox => true }, :title => @project.pictures.first.description      
+  .width40{:class => I18n.locale}
+    %div
+      %b= t('form.employer')
+      = @project.employer.title     
+    %div
+      =raw @project.description
+  .clear
+  %hr
+  %div
     .show-pics.go-center
       - @project.pictures.offset(1).each do |pic|
-        .project-pics
-          =link_to (image_tag pic.image(:medium)), pic.image(:large), :data => { :colorbox => true }, :title => pic.description         
-        .vertical-line
-      .clear-float
-    .clear-float
-  -if is_admin?  
-    = render "pictures/form", :project_id => @project.id
+        .project
+          =link_to  pic.image(:original), :data => { :colorbox => true }, :title => pic.description, :class => "image"          do
+            = image_tag pic.image(:medium)
+            .rollover.opacityOut View Project
+          .name= pic.description
+            
+
     
  
-  .link-margin-top
-    -if is_admin?
-      = link_to t('form.edit'), edit_project_path(@project)
-      \|
-    = link_to t('back'), projects_path
+  

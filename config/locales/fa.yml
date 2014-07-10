@@ -5,11 +5,9 @@ fa:
   back: "بازگشت"
   show: "مشاهده"
   home: "صفحه اصلی"
-  More: "مشاهده"
-  projects: "پروژه های انجام شده"
-  Resources: "منابع "
+  More: "→ ادامه مطلب"
   SignUp: "افزودن مدیرسایت"
-  project_categoty: "گروه بندی پروژه ها"
+  
   page: "صفحات متنی"
   form:
     title: "عنوان:"
@@ -21,13 +19,22 @@ fa:
     edit: "ویرایش"
     delete: "حذف"
     web: "وب سایت:"
-    
-  project: "پروژه ها"
+  project: "پروژه"  
+  our-projects: "پروژه های ما"
   resources: "منابع علمی"
+  services: 'خدمات و زمینه های کاری'
   employers:  "کارفرمایان"
   messages: "پیام ها"
   teams: "تیم کاری"
+  about: "شرکت"
+  contact: "تماس با ما"
+  bolur-baran: "بلور باران شرق"
   
+  our-resource: "منابع ما"
+  our-sectors: "زمینه کاری ما"
+  Contact-Details: "اطلاعات تماس:"
+  like-to-discuss: "آیا می خواهید درباره پروژه تان با یک نفر از تیم ما مشورت کنید؟"
+  plz-call: "با شماره روبرو تماس بگیرید."
   msg:
     contact-name: "نام:"
     contact-email: "ایمیل:"

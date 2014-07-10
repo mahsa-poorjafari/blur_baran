@@ -1,6 +1,6 @@
 class SlidesController < ApplicationController
   before_action :set_slide, only: [:show, :edit, :update, :destroy]
-  layout "others"
+ 
   # GET /slides
   # GET /slides.json
   def index

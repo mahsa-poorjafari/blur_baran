@@ -1,26 +1,30 @@
-.page-title.go-center
-  %h1= t('resources')
+.homeSectors
+  = image_tag 'sectors.jpg'
+  
+.careers.twoCols
+  .right
+    .sectionName= t('bolur-baran')
+    %h1.pageName= t('resources')
+  .clear
+
   -if is_admin?
     = link_to new_resource_path, :class => "new-project" do
       = image_tag "add-icons.png"
       = t('form.New')
-.clear-float
-.middle-div.go-center{:id => I18n.locale, :class => I18n.locale}     
-  .resources-list
+  .intro
     - @resources.each do |resource|
       .show-resource{:class => I18n.locale} 
-        .pro-pic
+        .right
           = image_tag resource.image(:small)        
-        %br
-        = resource.title
-        %br
-        = link_to resource.link, "http://#{resource.link}", :target => "blank" 
+        .left
+          %br
+          = resource.title
+          %br
+          = link_to resource.link, url_with_protocol(resource.link), :target => "blank" 
         .links
           -if is_admin?
-            .column.icon= link_to  (image_tag 'edit-icons.png'),  edit_resource_path(resource)                     
-            .column.icon= link_to (image_tag 'delete-icons.png'), resource, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
-      
+            .column.icon= link_to  'ویرایش',  edit_resource_path(resource)                     
+            .column.icon= link_to 'حذف', resource, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
+      %hr
         
-    .clear-float
-%br
 
