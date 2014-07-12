@@ -46,38 +46,38 @@ ActiveRecord::Schema.define(version: 20140219070549) do
 
   create_table "pictures", force: true do |t|
     t.text     "description"
+    t.text     "description_fa"
+    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "project_id"
-    t.text     "description_fa"
   end
 
   create_table "project_categories", force: true do |t|
     t.string   "title"
     t.text     "description"
+    t.string   "title_fa"
+    t.text     "description_fa"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "sample_pic_file_name"
     t.string   "sample_pic_content_type"
     t.integer  "sample_pic_file_size"
     t.datetime "sample_pic_updated_at"
-    t.string   "title_fa"
-    t.text     "description_fa"
   end
 
   create_table "projects", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "employer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "project_category_id"
     t.string   "title_fa"
     t.text     "description_fa"
+    t.integer  "employer_id"
+    t.integer  "project_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "resources", force: true do |t|
