@@ -1,29 +1,38 @@
-.col-lg-12
-  .page-header.go-center    
-    %h1= t('employers')
-    -if is_admin?      
-      = link_to new_employer_path, :class => "new-project" do
-        = image_tag "add-icons.png"
-        = t('form.New')
+.homeSectors
+  = image_tag 'sectors.jpg'
+  
+.careers.twoCols
+  .right
+    .sectionName= t('bolur-baran')
+    %h1.pageName= t('employers')
+  .clear
+    
+  -if is_admin?      
+    = link_to new_employer_path, :class => "new-project" do
+      = image_tag "add-icons.png"
+      %h6= 'معرفی کارفرما جدید'
 
-.middle-div.go-center
-
-  .show-employers    
-    - @employers.each do |employer|
-      %blockquote{ :class => ('pull-left' if I18n.locale == :'en') || ('pull-right' if I18n.locale == :'fa')}      
+  .intro
+    - @employers.each do |employer| 
+      .list-teams.width30{:class => I18n.locale} 
+        - if employer.logo.present?
+          = image_tag employer.logo(:thumb), :class => "img-thumbnail"
         %p
-          .column= t('form.title')
+          .column{:class => I18n.locale}= t('form.title')
           .column= link_to employer.title, employer
-          .column= t('form.web')                  
+          .column{:class => I18n.locale}= t('form.web')                  
           .column= link_to employer.web_site, "http://#{employer.web_site}", :target => "blank"
-        .trow
-          .column.icon= link_to  (image_tag 'edit-icons.png'),  edit_employer_path(employer)                
-          .column.icon= link_to (image_tag 'delete-icons.png'), employer, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
-      %div{ :class => ('pull-left' if I18n.locale == :'fa') || ('pull-right' if I18n.locale == :'en')}      
-        = image_tag employer.logo(:thumb), :class => "img-thumbnail"
-      .clear-float
+          .clear
+        - if is_admin?
+          .trow
+            = link_to  'ویرایش',  edit_employer_path(employer)    
+            \|            
+            = link_to 'حذف', employer, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
+      
+        
+    .clear
 
-%br
+
 
     
   

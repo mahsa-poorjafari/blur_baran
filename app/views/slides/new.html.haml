@@ -1,5 +1,12 @@
-%h1= " اسلایدر"
+.careers.twoCols
+  .right
+    .sectionName= t('bolur-baran')     
+    %h1.pageName= t('slider')
+   
+  .clear
+  .fa{:style => "width:100%"}
+    = render 'form'
+  .clear
+  -if is_admin?  
+    = link_to t('back'), slides_path
 
-= render 'form'
-
-= link_to 'Back', slides_path

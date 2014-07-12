@@ -32,7 +32,7 @@
         =link_to (image_tag "en.png", :class => "language-icon farc", :id => "en"), locale: :en
         =link_to (image_tag "fa.png", :class => "language-icon", :id => "en"), locale: :fa
               
-    .header
+    .header{:class => ( locale == :en ? "ltr" : "rtl")}       
       .logo
         = link_to root_path do          
           = image_tag 'logo.png'

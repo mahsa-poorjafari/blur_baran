@@ -10,21 +10,20 @@
   -if is_admin?
     = link_to new_resource_path, :class => "new-project" do
       = image_tag "add-icons.png"
-      = t('form.New')
+      %h6= 'افزودن به منابع علمی'
   .intro
     - @resources.each do |resource|
-      .show-resource{:class => I18n.locale} 
-        .right
+      .list-teams.width40{:class => I18n.locale}         
+        - if resource.image.present?
           = image_tag resource.image(:small)        
-        .left
-          %br
-          = resource.title
-          %br
-          = link_to resource.link, url_with_protocol(resource.link), :target => "blank" 
+        
+        =link_to resource.title,  resource     
+        = link_to resource.link, url_with_protocol(resource.link), :target => "blank" 
         .links
           -if is_admin?
-            .column.icon= link_to  'ویرایش',  edit_resource_path(resource)                     
-            .column.icon= link_to 'حذف', resource, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
-      %hr
+            = link_to  'ویرایش',  edit_resource_path(resource)  
+            \|                   
+            = link_to 'حذف', resource, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم حذف شود؟' }
+    .clear
         
 

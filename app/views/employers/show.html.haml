@@ -1,24 +1,29 @@
+.homeSectors
+  = image_tag 'sectors.jpg'
 - if notice    
-  .alert.alert-success= notice   
-.col-lg-12
-  .page-header.go-center    
-    %h1= t('employers')
-    -if is_admin? 
-      = link_to (image_tag 'edit-icons.png'), edit_employer_path(@employer)
-      \|
-      = link_to t('back'), employers_path
-.middle-div.go-center{:id => I18n.locale, :class => I18n.locale}         
-  .show-employers      
-    %blockquote{ :class => ('pull-left' if I18n.locale == :'en') || ('pull-right' if I18n.locale == :'fa')}      
+  .alert.alert-success= notice 
+.careers.twoCols
+  .right
+    .sectionName= t('bolur-baran')
+    %h1.pageName= t('employers')
+  .clear
+
+  -if is_admin? 
+    = link_to 'ویرایش', edit_employer_path(@employer)
+    \|
+    = link_to t('back'), employers_path
+  .intro
+    .show-employers{:class => I18n.locale}         
+    
       %p
-        .column= t('form.title')
+        .column{:class => I18n.locale}= t('form.title')
         .column= @employer.title
-        .column= t('form.web')                  
+        .column{:class => I18n.locale}= t('form.web')                  
         .column= link_to  @employer.web_site, "http://#{@employer.web_site}", :target => "blank"
-      
-    %div{ :class => ('pull-left' if I18n.locale == :'fa') || ('pull-right' if I18n.locale == :'en')}      
-      = image_tag @employer.logo(:medium), :class => "img-thumbnail"
-    .clear-float
+        .clear
+      - if @employer.logo.present?
+        = image_tag @employer.logo(:medium), :class => "img-thumbnail"
+    .clear
 
 %br
 

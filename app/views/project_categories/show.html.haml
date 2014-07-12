@@ -1,43 +1,56 @@
 -if notice
   .alert.alert-dismissable.alert-success= notice
-.page-title.go-center
-  %h1= t('projects')
-.middle-div.go-center 
-  .projects-list
-    .tile-category{:id => I18n.locale, :class => I18n.locale }
-      -if is_admin?
-        .column.icon
-          = link_to  (image_tag 'edit-icons.png'),  edit_project_category_path(@project_category)            
-          = link_to t('back'), project_categories_path
-        .add-project       
+.careers.twoCols
+  .right
+    .sectionName= t('bolur-baran')
+    %h1.pageName= t('services')
+  .clear
+  .intro  
+    .middle-div.go-center 
+      .projects-list
+        .tile-category{:class => I18n.locale }
           -if is_admin?
-            = link_to new_project_path do
-              = image_tag "add-icons.png"
-              = t('form.New')
-      %h4.category-name= @project_category.title
-      %hr
-      .arrow-bottom
-      .category-des= @project_category.description
-      - @project_category.projects.each do |project|  
-        .show-pro-info.go-center{:class => cycle('even', 'odd')}    
-          -if is_admin?
-            .column-hover.icon
-              = link_to (image_tag 'edit-icons.png'), edit_project_path(project)
-              = link_to (image_tag 'delete-icons.png'), project, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم را حذف کنید؟' }           
-          .pic-pro
-            = link_to project do
-              -if project.pictures.first.present?
-                = image_tag project.pictures.first.image(:small), :class => "first-img-pro"
-              -else 
-                = image_tag "thumbnail.png", :class => "first-img-pro "
-            .clear-float
-          .project-detail{:id => I18n.locale, :class => I18n.locale }
-            %h4= project.title      
-            %p= project.description
-            %br
-            = project.employer.title
-        .clear-float   
-  
-  
+            .column.icon.right.width40 
+              = link_to  'ویرایش',  edit_project_category_path(@project_category)            
+              \|
+              = link_to 'حذف', @project_category, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم را حذف کنید؟' }           
+              \|
+              = link_to 'بازگشت', project_categories_path
+              
+              
+            .add-project.left.width40  
+              -if is_admin?
+                = link_to new_project_path do
+                  = image_tag "add-icons.png"
+                  %h5= 'تعریف پروژه جدید برای این بخش'
+            .clear
+          %h4.category-name= @project_category.title          
+          .category-des.left.width40= @project_category.description
+          .width40.right= image_tag @project_category.sample_pic(:medium)
+          .clear
+          %hr
+          .project-category-projects
+            - @project_category.projects.each do |project|  
+              .show-pro-info.go-center{:class => cycle('even', 'odd')}    
+                -if is_admin?
+                  .column-hover.icon
+                    = link_to 'ویرایش', edit_project_path(project)
+                    = link_to 'حذف', project, :method => :delete, :data => { :confirm => 'آیا می خواهید این آیتم را حذف کنید؟' }           
+                .pic-pro.width40 
+                  = link_to project do
+                    -if project.pictures.first.present?
+                      = image_tag project.pictures.first.image(:small), :class => "first-img-pro"
+                    -else 
+                      = image_tag "thumbnail.png", :class => "first-img-pro "
+                  .clear
+                .project-detail.width40{:class => I18n.locale }
+                  %h4= project.title      
+                  %p= project.description
+                  %br
+                  = project.employer.title
+            
+      .clear
+%hr
+    
 
     

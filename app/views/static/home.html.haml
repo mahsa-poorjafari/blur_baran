@@ -1,12 +1,10 @@
 #homeSliderBox.slider
   .sliderDisplay
     #sliderContent.sliderContent{style: "width: 2790px; left: -1860px; top: 0px;"}
-      .sliderItem
-        %img{alt: "Global engineering solutions for the UK", height: "340", src: "Engineering%20and%20Consulting%20-%20Fichtner%20Consulting%20Engineers%20Ltd_files/930x340_003.jpg", width: "930"}/
-      .sliderItem
-        %img{alt: "Realising Potential Through Engineering - Reduce Risk. Improve Efficiency & Maximise Innovation", height: "340", src: "Engineering%20and%20Consulting%20-%20Fichtner%20Consulting%20Engineers%20Ltd_files/930x340_002.jpg", width: "930"}/
-      .sliderItem
-        %img{alt: "States of Jersey Energy from Waste, Delivering the future of our waste needs, today", height: "340", src: "Engineering%20and%20Consulting%20-%20Fichtner%20Consulting%20Engineers%20Ltd_files/930x340.jpg", width: "930"}/
+      - Slide.all.each do |slide|
+        .sliderItem
+          = image_tag slide.image(:gallery_size)
+        
     .clear
   %a.prev.displayBlock{href: ""} Prev
   %a.next.displayBlock{href: ""} Next
@@ -22,13 +20,3 @@
 .homeSectors
   = image_tag 'sectors.jpg'
   
-
-
-
-  
-
- 
-:javascript
-  $(".item").first().addClass("active");
-  $(".slide-indicator").first().addClass("active");
-  $('.carousel').carousel();

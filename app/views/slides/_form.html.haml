@@ -1,19 +1,19 @@
 = form_for @slide do |f|
   - if @slide.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@slide.errors.count, "error")} prohibited this slide from being saved:"
+      
       %ul
-        - @slide.errors.full_messages.each do |msg|
+        - @slide.errors.each do |attr, msg|
           %li= msg
 
-  .field
-    = f.label "تصویر "
+  .form-group
+    = f.label "تصویر ", :class => "control-label" 
     = f.file_field :image
-  .field
-    = f.label "توضیحات با فارسی"
-    = f.text_area :description_fa
-  .field
-    = f.label "توضیحات به انگلیسی"
-    = f.text_area :description_en
-  .actions
-    = f.submit 'ثبت'
+  .form-group
+    = f.label "توضیحات با فارسی", :class => "control-label" 
+    = f.text_area :description_fa, :class => "form-control", :style => "resize:none; height:100px"
+  .form-group
+    = f.label "توضیحات به انگلیسی", :class => "control-label" 
+    = f.text_area :description_en, :class => "form-control", :style => "resize:none; height:100px"
+  .form-group
+    = f.submit 'ثبت', :class => "btn btn-default"

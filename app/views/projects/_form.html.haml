@@ -2,32 +2,30 @@
   - if @project.errors.any?
     #error_explanation      
       %ul
-        - @project.errors.full_messages.each do |msg|
+        - @project.errors.each do |attr, msg|
           %li= msg
-  .field
-    = f.label t('form.category')
-    = f.select :project_category_id, options_for_select(ProjectCategory.find(:all).collect{ |t| [t.title, t.id] }, :prompt => 'Select')
-  .field
-    = f.label "عنوان پروژه با فارسی"
-    = f.text_field :title_fa
-  .field
-    = f.label "عنوان پروژه به انگلیسی"
-    = f.text_field :title
-  .field
-    = f.label "توضیحات به فارسی"
+  .form-group
+    = f.label t('form.category'), :class => "control-label" 
+    = f.select :project_category_id, options_for_select(ProjectCategory.find(:all).collect{ |t| [t.title, t.id] }, :prompt => 'Select'), :class => "form-control"
+  .form-group
+    = f.label t('form.employer'), :class => "control-label" 
+    = f.select :employer_id, options_for_select(Employer.find(:all).collect{ |t| [t.title, t.id] }, :prompt => 'Select'), :class => "form-control"
+  .form-group
+    = f.label "عنوان پروژه با فارسی", :class => "control-label" 
+    = f.text_field :title_fa, :class => "form-control"
+  .form-group
+    = f.label "عنوان پروژه به انگلیسی", :class => "control-label" 
+    = f.text_field :title, :class => "form-control"
+  %div
+    = f.label "توضیحات به فارسی", :class => "control-label" 
     %br
     %div.editor
       = f.text_area :description_fa, :class => "ckeditor"
-  .field
-    = f.label "توضیحات به انگلیسی"
+  %div
+    = f.label "توضیحات به انگلیسی", :class => "control-label" 
     %br
     %div.editor
       = f.text_area :description, :class => "ckeditor"
-  
-  .field
-    = f.label t('form.employer')
-    = f.select :employer_id, options_for_select(Employer.find(:all).collect{ |t| [t.title, t.id] }, :prompt => 'Select')
-     
       
-  .actions
-    = f.submit t('form.save')
+  .form-group
+    = f.submit t('form.save'), :class => "btn btn-default"

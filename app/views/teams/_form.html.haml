@@ -2,7 +2,7 @@
   - if @team.errors.any?
     #error_explanation      
       %ul
-        - @team.errors.full_messages.each do |msg|
+        - @team.errors.each do |attr, msg|
           %li= msg
   
   .form-group   
@@ -16,19 +16,19 @@
     = f.label "نام و نام خانوادگی به فارسی"
     = f.text_field :name_fa, :class => "form-control"
   .form-group
-    = f.label "آخرین مدرک تحصیلی به فارسی"
-    = f.text_area :education_fa, :class => "form-control"
+    = f.label "آخرین مدرک تحصیلی به فارسی", :class => "control-label" 
+    = f.text_area :education_fa, :class => "form-control", :style => "resize:none; height:100px"
   .form-group
-    = f.label "آخرین مدرک تحصیلی به انگلیسی"
-    = f.text_area :education_en, :class => "form-control"
+    = f.label "آخرین مدرک تحصیلی به انگلیسی", :class => "control-label" 
+    = f.text_area :education_en, :class => "form-control", :style => "resize:none; height:100px"
   .form-group
-    = f.label "ایمیل"
+    = f.label "ایمیل", :class => "control-label" 
     = f.text_field :email, :class => "form-control"
   .form-group
-    = f.label "توضیحات به فارسی"
-    = f.text_area :description_fa, :class => "form-control"
+    = f.label "توضیحات به فارسی", :class => "control-label" 
+    = f.text_area :description_fa, :class => "form-control", :style => "resize:none; height:100px"
   .form-group
-    = f.label "توضیحات به انگلیسی"
-    = f.text_area :description_en, :class => "form-control"
-  .actions
+    = f.label "توضیحات به انگلیسی", :class => "control-label" 
+    = f.text_area :description_en, :class => "form-control", :style => "resize:none; height:100px"
+  .form-group
     = f.submit t('form.save'), :class => "btn btn-default"

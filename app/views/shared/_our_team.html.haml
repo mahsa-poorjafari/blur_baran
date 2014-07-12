@@ -1,26 +1,21 @@
-%hr
-%h2= t('teams')
-
+.title
+  %h2= t('teams')
+-if is_admin?
+  = link_to new_team_path, :class => "new-project" do
+    = image_tag "add-icons.png"
+    %h6= 'معرفی فرد جدید در تیم کاری'
 .bs-example.table-responsive{:style => "min-height:400px"}
-  - Team.all.each do |team|
-    .team-work-info
-      .team-pic.go-center
-        -if team.image.blank?
-          = image_tag "user-unkhown.png"
-        -else
-          = image_tag team.image(:small)
-      .list-teams
-        %h4.list-group-item-heading= team.name    
-        .show-info-team         
-          %p= team.education
-          %small= team.email
-          %br
-          -if is_admin?
-            = link_to (image_tag 'edit-icons.png'), edit_team_path(team)
-            = link_to (image_tag 'delete-icons.png'), team, :method => :delete, :data => { :confirm => 'آیا می خواهید این پیام حذف شود؟' }
-      
+  - Team.all.each do |team|    
+    .list-teams.width30{:class => I18n.locale} 
+      %h4.list-group-item-heading= team.name    
+      .show-info-team         
+        %p= team.education
+        %small= team.email
+        %br
+        -if is_admin?
+          = link_to 'ویرایش', edit_team_path(team)
+          \|
+          = link_to 'حذف', team, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+  
  
-  -if is_admin?
-    = link_to new_team_path, :class => "new-project" do
-      = image_tag "add-icons.png"
-      = t('form.New')
+  

@@ -1,9 +1,9 @@
-.page-header.go-center    
-  %h1= t('teams')
-  -if is_admin?  
-    = link_to t('back'), page_path(1)
-.middle-div.go-center
-  .col-lg-4.col-lg-offset-1{ :class => ('pull-left' if I18n.locale == :'en') || ('pull-right' if I18n.locale == :'fa')}      
+.fa
+  .careers.twoCols
+    .right
+      .sectionName= t('bolur-baran')
+      %h1.pageName= t('teams')
+  
+  .fa{:style => "width:100%"} 
     = render 'form'
-  .clear-float
-%br
+.clear

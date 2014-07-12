@@ -6,7 +6,7 @@
     %h1.pageName= t('services')
   .clear
   -if is_admin?
-    = link_to new_project_path, :class => "new-project" do
+    = link_to new_project_category_path, :class => "new-project" do
       = image_tag "add-icons.png"
       = t('form.New')
   .intro
@@ -17,5 +17,6 @@
         .width40= image_tag project_category.sample_pic(:medium)
         .width40= project_category.description
       .clear
-        
+      .more= link_to 'مشاهده پروژه ها', project_category
+    .clear  
 

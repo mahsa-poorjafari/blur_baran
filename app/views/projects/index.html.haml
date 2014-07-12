@@ -1,14 +1,11 @@
-.homeSectors
+.homeSectors  
   = image_tag 'sectors.jpg'
 .careers.twoCols
   .right
     .sectionName= t('bolur-baran')
     %h1.pageName= t('project')
   .clear
-  -if is_admin?
-    = link_to new_project_path, :class => "new-project" do
-      = image_tag "add-icons.png"
-      = t('form.New')
+  
   .add-project       
     -if is_admin?
       = link_to new_project_path do
@@ -16,24 +13,26 @@
         = t('form.New')
   .intro
     - @projects.each do |project|
-      .title
-        %h2= project.title
-      .width40{:class => I18n.locale } 
-        .pro-sample-pic= image_tag project.pictures.first.image(:medium)
-      .width50{:class => I18n.locale }            
-        = project.employer.title
-        = project.description
-        .more
-          = link_to t('More'), project
-      .clear
-      .width50        
-      
-        - if is_admin?
-          = link_to 'ویرایش', edit_project_path(project)
-          \|
-          = link_to 'حذف', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
-      .clear
-      %hr
+      %div{:class => cycle("odd", "even")}
+        .title
+          %h2= project.title
+        .width40{:class => I18n.locale } 
+          - if project.pictures.present?
+            .pro-sample-pic= image_tag project.pictures.first.image(:medium)
+        .width50{:class => I18n.locale }            
+          = project.employer.title
+          =raw project.description
+          .more
+            = link_to t('More'), project
+        .clear
+        .width50        
+        
+          - if is_admin?
+            = link_to 'ویرایش', edit_project_path(project)
+            \|
+            = link_to 'حذف', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        .clear
+        
     
     
 

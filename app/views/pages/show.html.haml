@@ -1,20 +1,17 @@
--if notice
-  .alert.alert-dismissable.alert-success= notice
-.page-title.go-center
-  %h1= @page.title
-  -if is_admin?  
-    = link_to (image_tag 'edit-icons.png'), edit_page_path(@page)    
-    = link_to t('back'), home_path
-
-      
-.middle-div.go-center 
-  .show-des-en{:class => I18n.locale, :id => I18n.locale}     
+.homeSectors  
+  = image_tag 'sectors.jpg'
+.careers.twoCols
+  .right
+    .sectionName= t('bolur-baran')
+    %h1.pageName= @page.title     
+  .clear
+  .show-des-en{:class => I18n.locale}     
     =raw @page.text
   -if @page.read_attribute("title_en") == "Contact us"
-    %hr
-    = render "shared/msg_form"
+    .width50{:class => I18n.locale}
+      = render "shared/msg_form"
   -if @page.read_attribute("title_en") == "About us"
     = render "shared/our_team"
-  .clear-float
+  .clear
 %br
 

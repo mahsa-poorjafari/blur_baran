@@ -1,13 +1,18 @@
-%p#notice= notice
-%p
-  =image_tag @picture.image(:medium)
-%p
-  %b Description:
-  = @picture.description
-%p
-  %b project_id:
-  = @picture.project_id
-
-= link_to 'Edit', edit_picture_path(@picture)
-\|
-= link_to 'Back', pictures_path
+.careers.twoCols
+  %p#notice= notice
+  .right
+    .sectionName= t('bolur-baran')
+    %h1.pageName= t('pictures')
+    
+  .clear
+  
+  %p
+    =image_tag @picture.image(:medium)
+  %p
+    %b توضیحات:
+    = @picture.description
+  
+  - if is_admin?
+    = link_to 'ویرایش', edit_picture_path(@picture)
+    \|
+    = link_to 'بازگشت', projects_path

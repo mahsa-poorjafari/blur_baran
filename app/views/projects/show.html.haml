@@ -10,6 +10,9 @@
         = link_to t('form.edit'), edit_project_path(@project)
         \|
         = link_to t('back'), projects_path
+        \|
+        = link_to 'افزودن تصویر به پروژه', new_picture_path(project_id: @project.id)
+      
     %h3    
       = @project.title
   .width50{:class => I18n.locale}     
@@ -26,12 +29,16 @@
   %div
     .show-pics.go-center
       - @project.pictures.offset(1).each do |pic|
-        .project
-          =link_to  pic.image(:original), :data => { :colorbox => true }, :title => pic.description, :class => "image"          do
-            = image_tag pic.image(:medium)
-            .rollover.opacityOut View Project
+        .project-pictures
+          =link_to  (image_tag pic.image(:medium)), pic.image(:original), :data => { :colorbox => true }, :title => pic.description, :class => "image"             
           .name= pic.description
-            
+          - if is_admin?
+            = link_to 'ویرایش', edit_picture_path(pic, project_id: @project.id )
+            \|
+            = link_to 'حذف', pic, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+
+      .clear 
+      %hr     
 
     
  

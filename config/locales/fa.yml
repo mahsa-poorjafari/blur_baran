@@ -20,15 +20,17 @@ fa:
     delete: "حذف"
     web: "وب سایت:"
   project: "پروژه"  
+  pictures: "تصاویر پروژه ها"
   our-projects: "پروژه های ما"
   resources: "منابع علمی"
   services: 'خدمات و زمینه های کاری'
   employers:  "کارفرمایان"
   messages: "پیام ها"
   teams: "تیم کاری"
-  about: "شرکت"
+  about: "درباره شرکت"
   contact: "تماس با ما"
   bolur-baran: "بلور باران شرق"
+  slider: "اسلایدر"
   
   our-resource: "منابع ما"
   our-sectors: "زمینه کاری ما"

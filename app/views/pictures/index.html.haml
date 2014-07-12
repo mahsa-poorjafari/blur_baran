@@ -15,5 +15,5 @@
       %td= link_to 'Destroy', picture, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Picture', new_picture_path, :class => "btn"
+- if is_admin?
+  = link_to 'تصویر جدید', new_picture_path, :class => "btn"

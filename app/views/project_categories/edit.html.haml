@@ -1,9 +1,11 @@
-.col-lg-12
-  .page-header.go-center
-    %h1= t('project_categoty')
-    = link_to t('back'), project_categories_path
-.form-horizontal{:class => I18n.locale}
-  = render 'form'
+.fa  
+  = image_tag 'sectors.jpg'
+.careers.twoCols
+  .right
+    .sectionName= t('bolur-baran')
+    %h1.pageName= t('services')
+  .fa{:style => "width:100%"}
+    = render 'form'
 %br
 
   

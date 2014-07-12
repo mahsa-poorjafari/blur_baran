@@ -1,5 +1,13 @@
-%h1 New picture
-
-= render 'form'
-
-= link_to 'Back', pictures_path
+.fa  
+  = image_tag 'sectors.jpg'
+.careers.twoCols
+  .right
+    .sectionName= t('bolur-baran')
+    %h1.pageName= t('pictures')
+    %h2= 'برای پروژه' + " " + @project.title
+  .clear
+  .fa{:style => "width:100%"}
+    = render 'form'
+  .clear
+  - if is_admin?
+    = link_to 'بازگشت', projects_path

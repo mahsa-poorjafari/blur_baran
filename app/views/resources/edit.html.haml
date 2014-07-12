@@ -1,11 +1,14 @@
-.col-lg-12
-  .page-header.go-center    
-    %h1= t('Resources')
-    -if is_admin?  
-      = link_to t('back'), resources_path
-.middle-div.go-center  
-  = render 'form'
-.clear-float
-%br
+.careers.twoCols
+  .right
+    .sectionName= t('bolur-baran')     
+    %h1.pageName= t('resources')
+   
+  .clear
+  .fa{:style => "width:100%"}
+    = render 'form'
+  .clear
+  -if is_admin?  
+    = link_to t('back'), resources_path
 
   
+

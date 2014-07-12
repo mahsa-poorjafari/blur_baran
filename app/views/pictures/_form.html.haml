@@ -1,21 +1,22 @@
-= form_for @picture=Picture.new do |f|
+= form_for @picture do |f|
   - if @picture.errors.any?
     #error_explanation      
       %ul
-        - @picture.errors.full_messages.each do |msg|
+        - @picture.errors.each do |attr, msg|
           %li= msg
-
-  
-  .field    
-    = f.file_field :image
-  .field.right
-    = f.label "توضیحات عکس به انگلیسی"
-    = f.text_area :description
-  .field
-    = f.label "توضیحات عکس به فارسی"
-    = f.text_area :description_fa
-  .field
-    = f.hidden_field :project_id, :value => project_id
-  .actions
-    = f.submit 'ثبت'
+  .form-group
+    - if @picture.image.present?
+      = image_tag @picture.image(:small)
+    = f.label "انتخاب تصویر:", :class => "control-label" 
+    = f.file_field :image, :class => "form-control"
+  .form-group
+    = f.label "توضیحات عکس به انگلیسی:", :class => "control-label" 
+    = f.text_area :description, :class => "form-control", :style => "resize:none; height:100px"
+  .form-group
+    = f.label "توضیحات عکس به فارسی:", :class => "control-label" 
+    = f.text_area :description_fa, :class => "form-control", :style => "resize:none; height:100px"
+  .form-group
+    = f.hidden_field :project_id, :value => @project_id
+  .form-group
+    = f.submit 'ثبت', :class => "btn btn-default"
   .clear-float

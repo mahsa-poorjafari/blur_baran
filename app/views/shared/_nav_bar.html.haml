@@ -9,12 +9,14 @@
     =link_to t("resources"), resources_path     
     
   %li.bottom
-    =link_to t('about'), pages_path 
+    - @about = Page.find_by_title_en('About us')
+    =link_to t('about'), @about 
     
   %li.wide.bottom
     =link_to t('services'), project_categories_path
     
   %li.bottom
-    =link_to t('contact'), pages_path 
+    - @contact = Page.find_by_title_en('Contact us')
+    =link_to t('contact'), @contact 
     
 

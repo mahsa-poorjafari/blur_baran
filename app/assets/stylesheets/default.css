@@ -204,16 +204,16 @@ h6 {
 	width: 257px;
 	height: 66px;
 	margin-left: 40px;
-	margin-right: 60px;
-	float: left;
+	margin-right: 60px;	
 }
+.header.ltr .logo {float:left}
+.header.rtl .logo {float:right}
 
 .header .logo a {
 	width: 257px;
-  margin-top:-10%;
-	background: url("logo.png") no-repeat;
+  margin-top:-10%;	
 	display: block;
-	text-indent: -9000px;
+	text-align:center;
 }
 
 .header .nav {
@@ -226,10 +226,11 @@ h6 {
 
 .header .nav li {
 	width: 110px;
-	padding: 0px 20px;
-	border-left: 1px solid #bfbfbf;
+	padding: 0px 20px;	
 	float: left;
 }
+.header.ltr .nav li {border-left: 1px solid #bfbfbf; direction:ltr; text-align:left}
+.header.rtl .nav li {border-right: 1px solid #bfbfbf; direction:rtl; text-align:right}
 
 .header .nav li.wide {
 	width: 205px;
@@ -410,11 +411,13 @@ h6 {
 }
 
 .twoCols .right .intro {
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 	font-size: 18px;
 	color: #4c4c4c;
 }
 
+.twoCols .right .intro .odd {direction:rtl}
+.twoCols .right .intro .even{direction:ltr}
 .twoCols .right .body {
 	margin-bottom: 40px;
 }
@@ -1756,8 +1759,103 @@ h6 {
   z-index:20;
 }
 .admin-menu-box h4 {color:#36586E}
-.admin-menu-box:hover {cursor:pointer; height:300px}
+.admin-menu-box:hover {cursor:pointer; height:330px}
 .width40 {width:40%}
+.width30 {width:30%}
 .width50 {width:50%}
 .en {direction:ltr; float:left; text-align:left}
 .fa {direction:rtl; float:right; text-align:right}
+.form-group {margin:2%}
+.fa .form-group .control-label{float:right; margin:1%; width:30%}
+.en .form-group .control-label{float:left; margin:1%; width:30%}
+.form-group input[textarea].form-control {width:60%; height:100px}
+.form-group .form-control{ border-radius:3px; border:1px solid #BFBFBF; height:30px; width:60% }
+.form-group .form-control:focus{box-shadow: 1px 1px 1px #1E90FF;}
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.btn:hover,
+.btn:focus {
+  color: #333;
+  text-decoration: none;
+}
+.btn:active,
+.btn.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+          box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+  color: #333;
+  background-color: #ebebeb;
+  border-color: #adadad;
+}
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+  background-image: none;
+}
+.btn-default.disabled,
+.btn-default[disabled],
+fieldset[disabled] .btn-default,
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+fieldset[disabled] .btn-default:focus,
+.btn-default.disabled:active,
+.btn-default[disabled]:active,
+fieldset[disabled] .btn-default:active,
+.btn-default.disabled.active,
+.btn-default[disabled].active,
+fieldset[disabled] .btn-default.active {
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn-default .badge {
+  color: #fff;
+  background-color: #333;
+}
+
+.project-pictures {width:50%; float:right}
+.project-category-projects .show-pro-info.even .pic-pro {float:right}
+.project-category-projects .show-pro-info.odd .pic-pro {float:left}
+.list-teams {padding:2%; margin-bottom:100px}
+.list-teams.en {border-left:1px solid #BFBFBF}
+.list-teams.fa {border-right:1px solid #BFBFBF}
+.Necessary {color:red}

@@ -1,15 +1,20 @@
+.homeSectors
+  = image_tag 'sectors.jpg'
 - if notice    
   .alert.alert-success= notice   
-.col-lg-12
-  .page-header.go-center    
-    %h1= t('resources')
-    -if is_admin? 
-      = link_to (image_tag 'edit-icons.png'), edit_resource_path(@resource)
-      \|
-      = link_to t('back'), resources_path
-.middle-div.go-center{:id => I18n.locale, :class => I18n.locale}         
-  .show-employers      
-    %blockquote{ :class => ('pull-left' if I18n.locale == :'en') || ('pull-right' if I18n.locale == :'fa')}      
+.careers.twoCols
+  .right
+    .sectionName= t('bolur-baran')
+    %h1.pageName= t('resources')
+  .clear
+
+  -if is_admin? 
+    = link_to 'ویرایش', edit_resource_path(@resource)
+    \|
+    = link_to 'بازگشت', resources_path
+  .intro
+    .show-employers{:class => I18n.locale}      
+      
       %p
         .column= t('form.title')
         .column= @resource.title
@@ -17,11 +22,11 @@
         .column= link_to  @resource.link, "http://#{@resource.link}", :target => "blank"
         .column= t('form.Description')
         .column= raw @resource.text_html
-      
-    %div{ :class => ('pull-left' if I18n.locale == :'fa') || ('pull-right' if I18n.locale == :'en')}      
-      = image_tag @resource.image.url(:medium), :class => "img-thumbnail"
-    .clear-float
+        
+      - if @resource.image.present?
+        = image_tag @resource.image.url(:medium), :class => "img-thumbnail"
+.clear
+%hr
 
-%br
 
     

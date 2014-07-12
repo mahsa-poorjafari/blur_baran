@@ -1,38 +1,35 @@
-.page-title.go-center
-  %h1= "اسلایدر"
-.clear-float
-.middle-div.go-center 
-  .form-holder
-    = form_for @slide, :html => {:multipart => true} do |f| 
-      = image_tag @slide.image.url(:original), :class => "crop cropImage", :height => "500", :width => "901"
+
+.edi-slider-holder.fa{:style => "width:100%"}  
+  %h2= 'تنظیم اندازه تصویر'
+  = form_for @slide, :html => {:multipart => true} do |f| 
+    .col-sm-9
+      = image_tag @slide.image.url(:original), :class => "crop cropImage", :height => "350", :width => "750"
       = f.hidden_field :crop_x
       = f.hidden_field :crop_y
       = f.hidden_field :crop_w
       = f.hidden_field :crop_h
-      .field{:style => "margin-top:20px"}
-        .s-description
-          = f.label "توضیحات به انگلیسی"
-          = f.text_area :description, :cols => '80', :rows => "3", :class => "slide-description"
-      
-        .s-description
-          = f.label "توضیحات به فارسی"
-          = f.text_area :description_fa, :cols => '80', :rows => "3", :class => "slide-description"  
-      
-      .clrear-float
-      .actions
-        .div_btn
-          = f.submit 'ثبت', :class => "btn"
-  -if is_admin?    
-    = link_to 'بازگشت', slides_path
-
+    .col-sm-3
+      .form-group        
+        = f.label "توضیحات به انگلیسی", :class => "control-label"
+        = f.text_area :description_en, :class => "form-control" , :style => "resize:none; height:100px"   
+        
+      .form-group        
+        = f.label "توضیحات به فارسی", :class => "control-label"
+        = f.text_area :description_fa, :class => "form-control", :style => "resize:none; height:100px"    
+            
+      .form-group
+        = f.submit 'ثبت', :class => "btn"
+  
+      = link_to 'بازگشت', slides_path
+.clear
 :javascript
-  $( '.crop' ).each( function () {
+  $('.crop' ).each( function () {
     var image = $( this )
     , crop  = image
     .crop( {
       controls : 'Drag to move, scroll to zoom'
     } )
-    .on( 'crop', function( event ) {
+    .on( 'crop', function( event ) {      
       $("#slide_crop_x").val(event.cropX);
       $("#slide_crop_y").val(event.cropY);  
       $("#slide_crop_h").val(event.cropH);
@@ -47,3 +44,6 @@
       crop.zoomOut();
     } );
   } );
+      
+    
+

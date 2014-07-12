@@ -15,6 +15,6 @@
             - if  slides.count != 1
               -  slides.each_with_index do |slide, index|
                 %li{"data-slide-to" => "#{index}", "data-target" => "#homeCarousel", :class => "slide-indicator"}      
-      %a.carousel-control.left{"data-slide" => "prev", href: ".carousel"} ›
-      %a.carousel-control.right{"data-slide" => "next", href: ".carousel"}‹             
+      %a.prev.carousel-control.left{"data-slide" => "prev", href: ".carousel"}
+      %a.next.carousel-control.right{"data-slide" => "next", href: ".carousel"}            
 

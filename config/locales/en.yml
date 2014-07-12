@@ -25,6 +25,7 @@ en:
   home: "HOME"  
   More: "→ More"
   projects: "Projects"
+  pictures: "PICTURES"
   Resources: "Resources"
   SignUp: "Sign Up"
   project_categoty: "Project Category"
@@ -49,6 +50,7 @@ en:
   about: "COMPANY"
   contact: "CONTACT US"
   bolur-baran: "BOLUR BARAN SHARQ"
+  slider: "SLIDER"
   
   our-resource: "Our Resources" 
   our-sectors: "Our Sectors" 

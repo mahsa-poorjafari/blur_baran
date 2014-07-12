@@ -1,0 +1,49 @@
+.page-title.go-center
+  %h1= "اسلایدر"
+.clear-float
+.middle-div.go-center 
+  .form-holder
+    = form_for @slide, :html => {:multipart => true} do |f| 
+      = image_tag @slide.image.url(:original), :class => "crop cropImage", :height => "500", :width => "901"
+      = f.hidden_field :crop_x
+      = f.hidden_field :crop_y
+      = f.hidden_field :crop_w
+      = f.hidden_field :crop_h
+      .field{:style => "margin-top:20px"}
+        .s-description
+          = f.label "توضیحات به انگلیسی"
+          = f.text_area :description, :cols => '80', :rows => "3", :class => "slide-description"
+      
+        .s-description
+          = f.label "توضیحات به فارسی"
+          = f.text_area :description_fa, :cols => '80', :rows => "3", :class => "slide-description"  
+      
+      .clrear-float
+      .actions
+        .div_btn
+          = f.submit 'ثبت', :class => "btn"
+  -if is_admin?    
+    = link_to 'بازگشت', slides_path
+
+:javascript
+  $( '.crop' ).each( function () {
+    var image = $( this )
+    , crop  = image
+    .crop( {
+      controls : 'Drag to move, scroll to zoom'
+    } )
+    .on( 'crop', function( event ) {
+      $("#slide_crop_x").val(event.cropX);
+      $("#slide_crop_y").val(event.cropY);  
+      $("#slide_crop_h").val(event.cropH);
+      $("#slide_crop_w").val(event.cropW);
+    })
+    .data('crop');
+      image
+      .on( 'dblclick', $.proxy( crop.zoomIn, crop ) )
+      .on( 'mousewheel', function ( event ) {
+      return event.originalEvent.wheelDelta < 0 ?
+      crop.zoomIn() :
+      crop.zoomOut();
+    } );
+  } );
