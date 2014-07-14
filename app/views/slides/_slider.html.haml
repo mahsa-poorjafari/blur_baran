@@ -1,20 +1,20 @@
-.hero-unit
-  .carousel.slide
-    .carousel-inner
+.hero-unit{:style => "height:400px; overflow:hidden"}
+  .AccordionBox
+    %ul
       -slides.each do |slide|
-        .item-row.item
-          = link_to (image_tag slide.image(:gallery_size), :id =>  slide.id ), slide, :class => "slide"
-          
+        %li        
+          = image_tag slide.image(:slide)          
           -if slide.description.present?
             .image-des-holder{:class => I18n.locale}
-              = slide.description 
-    -if slides.count > 1          
-      .carousel-controls
-        .center
-          %ol.carousel-indicator-list.carousel-indicators
-            - if  slides.count != 1
-              -  slides.each_with_index do |slide, index|
-                %li{"data-slide-to" => "#{index}", "data-target" => "#homeCarousel", :class => "slide-indicator"}      
-      %a.prev.carousel-control.left{"data-slide" => "prev", href: ".carousel"}
-      %a.next.carousel-control.right{"data-slide" => "next", href: ".carousel"}            
-
+              = slide.description
+  
+:javascript
+  window.DisableAccordionBox = false;
+  $('.AccordionBox ul li').mouseover(function(){
+    $('.AccordionBox ul li').removeClass( "active" );
+    $(this).addClass('active');
+    window.DisableAccordionBox = true;
+  });
+  $('.AccordionBox ul li').mouseout(function(){
+    window.DisableAccordionBox = false;
+  });

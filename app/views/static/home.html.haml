@@ -1,13 +1,4 @@
-#homeSliderBox.slider
-  .sliderDisplay
-    #sliderContent.sliderContent{style: "width: 2790px; left: -1860px; top: 0px;"}
-      - Slide.all.each do |slide|
-        .sliderItem
-          = image_tag slide.image(:gallery_size)
-        
-    .clear
-  %a.prev.displayBlock{href: ""} Prev
-  %a.next.displayBlock{href: ""} Next
+= render 'slides/slider', :slides => Slide.all
   
   
 .homeTitle

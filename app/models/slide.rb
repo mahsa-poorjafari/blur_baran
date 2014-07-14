@@ -1,8 +1,7 @@
 # encoding: UTF-8
 class Slide < ActiveRecord::Base
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-   has_attached_file :image, :styles => { :small => "150x150",
-                                        :gallery_size => {:geometry => "720x360^", :processors => [:jcropper]}}
+   has_attached_file :image, :styles => { :small => "150x150", :slide => "730x400^"}
   
   def description
     I18n.locale == :fa ? self.read_attribute("description_fa") : self.read_attribute("description_en")
